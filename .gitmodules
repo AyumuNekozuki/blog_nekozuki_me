@@ -3,7 +3,7 @@
 	url = https://github.com/AyumuNekozuki/hexo-theme-gal.git
 [submodule "themes/amazing"]
 	path = themes/amazing
-	url = git@github.com:AyumuNekozuki/hexo-theme-amazing.git
+	url = https://github.com/AyumuNekozuki/hexo-theme-amazing.git
 [submodule "themes/icarus"]
 	path = themes/icarus
-	url = git@github.com:AyumuNekozuki/hexo-theme-icarus.git
+	url = https://github.com/AyumuNekozuki/hexo-theme-icarus.git
