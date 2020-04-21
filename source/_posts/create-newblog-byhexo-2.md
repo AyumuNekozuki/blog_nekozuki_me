@@ -4,7 +4,7 @@ date: 2020-04-22 03:16:02
 tags:
 - hexoでブログを立てるシリーズ
 - 技術小話
-photos: 
+photos: https://media.discordapp.net/attachments/542501461439938596/702195367181025330/unknown.png
 ---
 <img style="width:100%;" src="https://media.discordapp.net/attachments/542501461439938596/702195367181025330/unknown.png">
 
