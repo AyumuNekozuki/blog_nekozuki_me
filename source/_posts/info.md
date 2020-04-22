@@ -1,8 +1,10 @@
 ---
-layout: posts
+layout: post
 title: お知らせ
 date: 2030-01-01 00:00
-tags:
+share: none
+archive: none
+comment: none
 ---
 ・**Googleアナリティクス** を有効化しました。詳しくは<a href="/about">About</a>ページを御覧ください。
 ・**RSS** & **サイトマップ** を導入しました。
