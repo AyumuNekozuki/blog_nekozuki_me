@@ -100,6 +100,13 @@ theme: icarus
 deploy:
   type: ''
 
+#sitemap
+sitemap:
+  path: sitemap.xml
+  tag: false
+  category: false
+
+
 #hexo g error kaihi
 jsonContent:
   dateFormat: MM-DD
