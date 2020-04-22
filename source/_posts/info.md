@@ -1,7 +1,7 @@
 ---
 layout: posts
 title: お知らせ
-date: 
+date: 2030-01-01 00:00
 tags:
 ---
 ・**Googleアナリティクス** を有効化しました。詳しくは<a href="/about">About</a>ページを御覧ください。
