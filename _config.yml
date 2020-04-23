@@ -129,3 +129,18 @@ jsonContent:
       permalink: tag.permalink
     }]
     preview: true
+
+pwa:
+  manifest:
+    path: /manifest.json
+    body:
+      name: hexo
+      short_name: hexo
+      icons:
+        - src: /img/favicon.png
+          sizes: 500x500
+          type: image/png
+      start_url: /index.html
+      theme_color: '#ffffff'
+      background_color: '#ffffff'
+      display: standalone
