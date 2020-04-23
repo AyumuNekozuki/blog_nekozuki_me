@@ -11,3 +11,8 @@ comment: none
 
 15:41 : PWA導入テスト
 15:50 : PWAアイコン修正
+
+<hr>
+
+16:14 : Twemoji導入テスト 
+:mask: :stuck_out_tongue_closed_eyes: :stuck_out_tongue_closed_eyes:
