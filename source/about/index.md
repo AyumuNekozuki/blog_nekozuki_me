@@ -11,6 +11,8 @@ comment: none
 
 また、後術するGitHubリポジトリに記載されている当サイトのデータは **MIT** ライセンスで利用可能です。
 
+<hr>
+
 ## 当ブログの構成
 
 当ブログは <a style="font-weight:bold;" href="https://hexo.io/">Hexo</a> を利用して構築しています。
@@ -20,15 +22,20 @@ comment: none
 ブログ：<a href="https://github.com/AyumuNekozuki/blog_nekozuki_me"><i class="fab fa-github"></i> AyumuNekozuki/blog_nekozuki_me</a>
 テーマ：<a href="https://github.com/AyumuNekozuki/hexo-theme-icarus"><i class="fab fa-github"></i> AyumuNekozuki/hexo-theme-icarus</a>
 
-ライブラリ本家、フォーク元は以下の通りです。
+### ライブラリ本家・フォーク元
 
 Hexo : <a href="https://github.com/hexojs/hexo"><i class="fab fa-github"></i> hexojs/hexo</a>
+
 Theme「icurus」 : <a href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i> ppoffice/hexo-theme-icarus</a>
-「icurus」night-mode : <a href="https://github.com/imaegoo/hexo-theme-icarus/tree/night3"><i class="fab fa-github"></i> imaegoo/hexo-theme-icarus/tree/night3</a>
+「icurus」ナイトモード : <a href="https://github.com/imaegoo/hexo-theme-icarus/tree/night3"><i class="fab fa-github"></i> imaegoo/hexo-theme-icarus/tree/night3</a>
+ナイトモード 作者デモ・解説ページ : <a href="https://www.imaegoo.com/2019/icarus-night-mode-2/"><i class="fa fa-globe"></i> imaegoo.com</a>
 
-ナイトモードについては別途こちらも御覧ください。
- <a href="https://www.imaegoo.com/2019/icarus-night-mode-2/">imaegoo.com - 作者デモ・解説ページ</a>
+GitHub Emoji : <a href="https://github.com/crimx/hexo-filter-github-emojis"><i class="fab fa-github"></i> crimx/hexo-filter-github-emojis</a>
+hexo PWA : <a href="https://github.com/lavas-project/hexo-pwa"><i class="fab fa-github"></i> lavas-project/hexo-pwa</a>
 
+
+
+<hr>
  
 ## コメント機能（Disqus）について
 当サイトでは、**Disqus** を利用してコメント機能を実装しています。
@@ -36,6 +43,8 @@ Theme「icurus」 : <a href="https://github.com/ppoffice/hexo-theme-icarus"><i c
 また、免責事項に記載している内容等をコメントした場合、削除等の対応を取らせていただきます。
 
 <a href="https://disqus.com/"><i class="fa fa-globe"></i> Disqus</a>
+
+<hr>
 
 ## データ収集/広告について 
 当サイトでは、 Google LLC 提供の **Googleアナリティクス** を利用しています。
@@ -51,6 +60,7 @@ Googleアナリティクスでは、トラフィックデータの収集のた�
 また、2020年4月22日 19時現在、当サイトに広告機能は導入しておりません。
 ですが、今後、Googleアドセンスなどの広告機能を導入する可能性があります。導入する場合、速やかに当ページに掲載いたします。
 
+<hr>
 
 ## 免責事項
 
@@ -72,6 +82,8 @@ Googleアナリティクスでは、トラフィックデータの収集のた�
 
 ### 画像の著作権や肖像権等について
 当サイトで掲載している画像の著作権や肖像権等は、各権利所有者に帰属します。万が一問題がある場合は、以下お問い合わせよりご連絡いただけますよう宜しくお願い致します。
+
+<hr>
 
 管理：猫月遥歩（ねこづきあゆむ）
 メール：<a href="mailto:ayumu@nekozuki.me">ayumu@nekozuki.me</a>

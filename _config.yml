@@ -165,3 +165,10 @@ pwa:
       theme_color: '#ffffff'
       background_color: '#ffffff'
       display: standalone
+
+githubEmojis:
+  enable: true
+  className: twemoji
+  inject: true
+  styles:
+  customEmojis:
