@@ -33,7 +33,8 @@ Theme「icurus」 : <a href="https://github.com/ppoffice/hexo-theme-icarus"><i c
 GitHub Emoji : <a href="https://github.com/crimx/hexo-filter-github-emojis"><i class="fab fa-github"></i> crimx/hexo-filter-github-emojis</a>
 hexo PWA : <a href="https://github.com/lavas-project/hexo-pwa"><i class="fab fa-github"></i> lavas-project/hexo-pwa</a>
 
-
+### 構築参考
+ももつきのーと : <a href="https://blog.yukiya.me/"><i class="fa fa-globe"></i> blog.yukiya.me</a> / <a href="https://github.com/yukiyalien/blog"><i class="fab fa-github"></i> yukiyalien/blog</a>
 
 <hr>
  
@@ -57,7 +58,7 @@ Googleアナリティクスでは、トラフィックデータの収集のた�
 
 <a href="https://help.disqus.com/en/articles/1717103-disqus-privacy-policy"><i class="fa fa-globe"></i> Disqusプライバシーポリシー</a>
 
-また、2020年4月22日 19時現在、当サイトに広告機能は導入しておりません。
+また、2020年4月22日 19時現在、当サイトに位置情報収集機能や広告機能は導入しておりません。
 ですが、今後、Googleアドセンスなどの広告機能を導入する可能性があります。導入する場合、速やかに当ページに掲載いたします。
 
 <hr>
