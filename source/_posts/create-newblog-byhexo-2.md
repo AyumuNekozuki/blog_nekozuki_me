@@ -44,7 +44,7 @@ photos: https://media.discordapp.net/attachments/542501461439938596/702195367181
 **自作Webフォントを追加**しました。
 
 今回導入したのはこの２つ。
-# <i class="icon2-niconico"></i>  <i class="icon2-nicolive"></i></span>
+# <i class="icon2-niconico"></i>  <i class="icon2-nicolive"></i>
 ニコニコテレビちゃんと新しい生放送のアイコンの子。
 
 fontawesomeさんと競合しちゃってずっと奮闘してましたが、なんとか導入できました！！
