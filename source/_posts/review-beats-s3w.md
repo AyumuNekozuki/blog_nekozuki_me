@@ -17,8 +17,7 @@ tags:
 
 初のレビュー記事となる今回は **Beats Studio3 Wireless** を書いていこうと思います。
 
-<blockquote class="embedly-card" data-card-controls="0" data-card-theme="dark"><h4><a href="https://www.beatsbydre.com/jp/headphones/studio3-wireless">Beats Studio&sup3; Wireless</a></h4><p>Beats Studio&sup3; Wirelessは、ピュアアクティブノイズキャンセリング（Pure ANC）機能で外部のノイズを遮断すると同時に、リアルタイムオーディオキャリブレーションにより最高のサウンドをお届けします。</p></blockquote>
-<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+<iframe class="blogcard" src="https://hatenablog-parts.com/embed?url=https://www.beatsbydre.com/jp/headphones/studio3-wireless"></iframe>
 
 <hr>
 
@@ -81,9 +80,7 @@ AirPodsと比べ物になりません（当たり前だ）
 
 個人的には、昔持ってた ウォークマンS10シリーズ のノイキャンのほうが優秀でした。
 
-<blockquote class="embedly-card" data-card-controls="0" data-card-theme="dark"><h4><a href="https://www.sony.jp/walkman/products/NW-S10_series/">NW-S10/NW-S10Kシリーズ | ポータブルオーディオプレーヤー WALKMAN ウォークマン | ソニー</a></h4><p>ソニー　ポータブルオーディオプレーヤー WALKMAN ウォークマン　公式ウェブサイト。ポータブルオーディオプレーヤー WALKMAN ウォークマンNW-S10/NW-S10Kシリーズの商品ページです。</p></blockquote>
-<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
-
+<iframe class="blogcard" src="https://hatenablog-parts.com/embed?url=https://www.sony.jp/walkman/products/NW-S10_series/"></iframe>
 
 ### その３：WinPCの電源を付けると強制的にWinPCに持っていかれる
 これは完全に誤算でした...

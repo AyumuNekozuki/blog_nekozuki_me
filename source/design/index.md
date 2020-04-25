@@ -134,6 +134,16 @@ date: 2020-04-23 21:23:34
 ```
 
 <hr>
+
+``` html
+<iframe 
+  class="blogcard"
+  src="https://hatenablog-parts.com/embed?url=https://blog.nekozuki.me">
+</iframe>
+```
+
+<iframe class="blogcard" src="https://hatenablog-parts.com/embed?url=https://blog.nekozuki.me"></iframe>
+
 <hr>
 
 >参考
