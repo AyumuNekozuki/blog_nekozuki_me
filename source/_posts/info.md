@@ -1,7 +1,7 @@
 ---
 layout: post
 title: お知らせ
-date: 2030-01-01 00:00
+date: 2030-01-01 00:00:01
 share: none
 archive: none
 comment: none
