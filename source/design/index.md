@@ -147,6 +147,14 @@ share: none
 
 <hr>
 
+``` markdown
+{% twitter https://twitter.com/nekozuki_2525/status/1122672076383408128 %}
+```
+
+{% twitter https://twitter.com/nekozuki_2525/status/1122672076383408128 %}
+
+---
+
 >参考
 >
 > <a href="https://qiita.com/Qiita/items/c686397e4a0f4f11683d"> <i class="fas fa-globe"></i> Markdown記法 チートシート</a>
