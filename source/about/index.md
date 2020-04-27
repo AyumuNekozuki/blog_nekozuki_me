@@ -32,6 +32,8 @@ Theme「icurus」 : <a href="https://github.com/ppoffice/hexo-theme-icarus"><i c
 
 GitHub Emoji : <a href="https://github.com/crimx/hexo-filter-github-emojis"><i class="fab fa-github"></i> crimx/hexo-filter-github-emojis</a>
 hexo PWA : <a href="https://github.com/lavas-project/hexo-pwa"><i class="fab fa-github"></i> lavas-project/hexo-pwa</a>
+Twitter埋め込み : <a href="https://github.com/tea3/hexo-tag-twitter"><i class="fab fa-github"></i> tea3/hexo-tag-twitter</a>
+WordPressインポート : <a href="https://github.com/hexojs/hexo-migrator-wordpress"><i class="fab fa-github"></i> hexojs/hexo-migrator-wordpress</a>
 
 ### 構築参考
 ももつきのーと : <a href="https://blog.yukiya.me/"><i class="fa fa-globe"></i> blog.yukiya.me</a> / <a href="https://github.com/yukiyalien/blog"><i class="fab fa-github"></i> yukiyalien/blog</a>
