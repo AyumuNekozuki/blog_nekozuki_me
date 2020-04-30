@@ -1,0 +1,68 @@
+---
+title: プリコネR、復帰しました
+date: 2020-04-30 23:09:25
+tags:
+- ゲーム
+- プリコネR
+---
+
+どうも、猫月あゆむです。
+**プリンセスコネクト！Re:Dive** 復帰しました。
+
+![](https://media.discordapp.net/attachments/542501461439938596/705422024209596466/EW2hIrmU4AMweNN.png)
+
+
+<!-- more -->
+
+というのも、アニメ見てたら久々にやりたくなったんです
+１話＆最新話無料なのでぜひ
+
+<iframe width="312" height="176" src="https://ext.nicovideo.jp/thumb/1586227263" scrolling="no" style="border:solid 1px #ccc;" frameborder="0"><a href="https://www.nicovideo.jp/watch/1586227263">プリンセスコネクト！Re:Dive 第1話「冒険の始まり ～夕焼け空にきのこのソテー～」</a></iframe>
+
+もともと、半年前ぐらいまでちょこっとやってたんですけど、いつの間にかログインしなくなっちゃって。
+
+この前ログインしたら...
+{% twitter https://twitter.com/nekozuki_2525/status/1255835865755955201 %}
+{% twitter https://twitter.com/nekozuki_2525/status/1255836082744090624 %}
+
+**189日ぶり**
+**ジュエル x18000**
+**スタミナ x2536**
+
+やべぇｗｗ
+そしてこれを約３日で溶かしましたｗｗｗ
+
+いまスタミナなくて困ってます... :persevere:
+
+ちなみに、コッコロたん推しです
+★６コッコロの素材集め（メモリーピースとか）終わったけれど、シャドウコッコロが強すぎて今のレベルじゃ倒せない...
+
+![](https://media.discordapp.net/attachments/542501461439938596/705428527633137754/unknown.png?width=946&height=532)
+![](https://media.discordapp.net/attachments/542501461439938596/705428580221321306/unknown.png?width=946&height=532)
+
+パーティーはこんな感じ。
+![](https://media.discordapp.net/attachments/542501461439938596/705429148855697518/unknown.png?width=946&height=532)
+
+いろいろ足りてないですね
+頑張ります
+
+こんな僕にフレンド組んでくださる方いればお願いします...！
+（残り２９人分枠空いてます）
+
+![](https://media.discordapp.net/attachments/542501461439938596/705422024209596466/EW2hIrmU4AMweNN.png)
+
+クランは、ちょっと入りたいクランあるんで、そこのクラン落ちてたら拾ってください...！
+
+プリコネ復帰したっていうお話でした。
+
+---
+
+ちょっと宣伝！
+
+バーチャルキャストラジオ企画、略して「**Vラジ！**」
+新しく運営メンバーに就任しました！
+
+次回放送は **5/14 (木) 21:30～** 予定です！ぜひ御覧ください！！
+
+放送コミュはこちらから。
+<iframe width="312" height="176" src="https://com.nicovideo.jp/thumb_community/co4490912" scrolling="no" style="border:solid 1px #CCC;" frameborder="0"><a href="https://com.nicovideo.jp/community/co4490912">【ニコニコ動画】Vラジ（仮）放送局</a></iframe>
