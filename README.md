@@ -1,6 +1,4 @@
-Sorry...! <br>
-The description of this repository is in Japanese only.
-Pull requests and issues are accepted in other languages.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/adfcc7ac-19d5-413f-a973-597c9190eeae/deploy-status)](https://app.netlify.com/sites/nekozukiblog/deploys)
 
 # ねころぐ
 Website : https://blog.nekozuki.me 
