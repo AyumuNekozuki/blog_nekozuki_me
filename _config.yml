@@ -172,3 +172,14 @@ githubEmojis:
   inject: true
   styles:
   customEmojis:
+
+#popularPosts:
+  # (optional) Popular posts options
+#  googleAnalyticsAPI:
+#    clientId: nekozukiblog.apps.googleusercontent.com
+#    serviceEmail: nekozukiblog@nekozukiblog.iam.gserviceaccount.com
+#    key: /hexo-project-root/path/to/google-services.pem
+#    viewId: 216359689
+#    dateRange: 30
+#    expiresDate: 10
+#    pvMeasurementsStartDate: 2020/04/20  #累計の訪問者数を計測したい開始日時を指定する
