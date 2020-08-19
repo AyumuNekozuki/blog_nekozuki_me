@@ -5,6 +5,8 @@ tags:
 - 技術小話
 - hexoでブログを立てるシリーズ
 - フォント
+category:
+ - hexoでブログを立てるシリーズ
 ---
 # <i class="icon2-niconico"></i>  <i class="icon2-nicolive"></i>
 

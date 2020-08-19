@@ -4,6 +4,9 @@ date: 2020-04-23 22:11:34
 tags:
 - 動画紹介
 - たべるんごのうた
+category:
+ - niconico
+ - 動画紹介
 ---
 まずは本家をどうぞ。
 <script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm36210300/script?w=720&h=480"></script><noscript><a href="https://www.nicovideo.jp/watch/sm36210300">たべるんごのうた</a></noscript>

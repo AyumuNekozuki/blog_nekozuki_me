@@ -2,6 +2,8 @@
 layout: post
 title: お知らせ
 date: 2030-01-01 00:00:01
+category:
+ - 最上部固定
 share: none
 archive: none
 comment: none

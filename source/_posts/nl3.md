@@ -6,6 +6,8 @@ tags:
 - 自己紹介
 - 動画紹介
 photos: https://media.discordapp.net/attachments/542501461439938596/702242028913950851/2.jpg
+category:
+ - 雑記
 ---
 <img style="width:100%;" src="https://media.discordapp.net/attachments/542501461439938596/702242028913950851/2.jpg">
 

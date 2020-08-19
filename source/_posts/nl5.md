@@ -5,6 +5,8 @@ tags:
 - hexoでブログを立てるシリーズ
 - 技術小話
 photos: https://media.discordapp.net/attachments/542501461439938596/702806570123132928/image0.png?width=395&height=703
+category:
+ - hexoでブログを立てるシリーズ
 ---
 
 ３日坊主にならなくてよかったよ。

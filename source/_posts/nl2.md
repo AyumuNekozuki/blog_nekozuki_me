@@ -5,6 +5,8 @@ tags:
 - hexoでブログを立てるシリーズ
 - 技術小話
 photos: https://media.discordapp.net/attachments/542501461439938596/702195367181025330/unknown.png
+category:
+ - hexoでブログを立てるシリーズ
 ---
 <img style="width:100%;" src="https://media.discordapp.net/attachments/542501461439938596/702195367181025330/unknown.png">
 
