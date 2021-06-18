@@ -1,13 +1,13 @@
 ---
 title: ねころぐについて
-date: 2020-04-22 00:00:00
+date: 2021-06-18 00:00:00
 share: none
 comment: none
 ---
-ねころぐは、猫月あゆむのブログです。
+ねころぐは、猫月遥歩（ねこづきあゆむ）のブログです。
 技術、ネタ、オススメ、自分語り、などいろいろなものを雑に書き記すブログです。
 
-当ブログに書いた、猫月あゆむ個人の発言は <a style="font-weight:bold;" href="https://creativecommons.org/licenses/by-nd/4.0/deed.ja">CC BY-ND 4.0</a> で利用可能です。
+当ブログに書いた、猫月遥歩（ねこづきあゆむ）個人の発言は <a style="font-weight:bold;" href="https://creativecommons.org/licenses/by-nd/4.0/deed.ja">CC BY-ND 4.0</a> で利用可能です。
 
 また、後術するGitHubリポジトリに記載されている当サイトのデータは **MIT** ライセンスで利用可能です。
 
@@ -50,8 +50,10 @@ WordPressインポート : <a href="https://github.com/hexojs/hexo-migrator-word
 <hr>
 
 ## データ収集/広告について 
-当サイトでは、 Google LLC 提供の **Googleアナリティクス** を利用しています。
-Googleアナリティクスでは、トラフィックデータの収集のためにCookieを利用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。収集されないようにしたい場合は、ブラウザの設定からCookieを無効化していただくようお願い致します。
+<span style="color:red;">2021年6月18日 更新しました。</span>
+
+当サイトでは、 Google LLC 提供の **Googleアナリティクス** 及び **Google AdSence** を利用しています。
+Googleアナリティクス／Google AdSenceでは、トラフィックデータの収集のためにCookieを利用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。収集されないようにしたい場合は、ブラウザの設定からCookieを無効化していただくようお願い致します。
 
 <a href="https://policies.google.com/privacy?hl=ja"><i class="fab fa-google"></i> Googleプライバシーポリシー</a>
 
@@ -59,9 +61,6 @@ Googleアナリティクスでは、トラフィックデータの収集のた�
 当サイトのコメント機能・投票機能のログを収集しています。こちらも、収集されないようにしたい場合は、ブラウザの設定からCookieを無効化、また、Disqusを利用しないなどお願い致します。
 
 <a href="https://help.disqus.com/en/articles/1717103-disqus-privacy-policy"><i class="fa fa-globe"></i> Disqusプライバシーポリシー</a>
-
-また、2020年4月22日 19時現在、当サイトに位置情報収集機能や広告機能は導入しておりません。
-ですが、今後、Googleアドセンスなどの広告機能を導入する可能性があります。導入する場合、速やかに当ページに掲載いたします。
 
 <hr>
 
