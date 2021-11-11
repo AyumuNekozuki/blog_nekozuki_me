@@ -77,6 +77,12 @@ export default {
     }],
     '@nuxtjs/google-gtag',
     '@nuxtjs/dotenv',
+    ['@nuxtjs/google-adsense', {
+      id: process.env.GA_ADSENSE_ID,
+      pageLevelAds: true,
+      analyticsUacct: process.env.GA_TRACKING_ID,
+      analyticsDomainName: 'blog.nekozuki.me'
+    }]
   ],
 
   fontawesome: {
@@ -102,8 +108,7 @@ export default {
     hidePoweredBy: true
   },
   'google-gtag': {
-    id: 'UA-154884607-2',
-    debug: true, 
+    id: process.env.GA_TRACKING_ID
   },
   
 
