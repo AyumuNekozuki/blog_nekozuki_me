@@ -3,16 +3,16 @@
     <main>
       <div class="__index __pages">
         <h1 class="h3 mb-3">タグ一覧</h1>
-        <nuxt-link
+        <a
           class="articlecard slim items"
           v-for="content in tag_datas"
           :key="content.id"
-          :to="`/tag/${content.id}`"
+          :href="`/tag/${content.id}`"
         >
           <div class="content_area">
             <h2 class="article_title">{{ content.tag }}</h2>
           </div>
-        </nuxt-link>
+        </a>
       </div>
     </main>
 
@@ -34,8 +34,8 @@
         <h3>最近の投稿</h3>
         <div>
           <div v-if="newest_articles">
-            <nuxt-link
-              :to="`/${content.id}`"
+            <a
+              :href="`/${content.id}`"
               class="widget_article"
               v-for="content in newest_articles"
               :key="content.id"
@@ -58,7 +58,7 @@
                 </p>
                 <p class="title">{{ content.title }}</p>
               </div>
-            </nuxt-link>
+            </a>
           </div>
           <div class="faild_getdata" v-if="!newest_articles">
             <p>データの取得に失敗しました</p>

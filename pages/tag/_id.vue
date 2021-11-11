@@ -3,11 +3,11 @@
     <main>
       <div class="__index __pages">
         <h1 class="h3 mb-3">タグ「{{ param_name }}」記事一覧</h1>
-        <nuxt-link
+        <a
           class="articlecard slim"
           v-for="content in archive_datas"
           :key="content.id"
-          :to="`/${content.id}`"
+          :href"`/${content.id}`"
         >
           <div v-if="content.thumbnail" class="thumbnail_area">
             <img :src="content.thumbnail.url" alt="" srcset="" />
@@ -24,12 +24,12 @@
             </div>
             <h2 class="article_title">{{ content.title }}</h2>
           </div>
-        </nuxt-link>
-        <nuxt-link to="/tag/" class="articlecard slim" v-if="!archive_datas.length">
+        </a>
+        <a href"/tag/" class="articlecard slim" v-if="!archive_datas.length">
           <div class="content_area">
             <h2 class="article_title">記事が見つかりませんでした</h2>
           </div>
-        </nuxt-link>
+        </a>
       </div>
     </main>
 
@@ -51,8 +51,8 @@
         <h3>最近の投稿</h3>
         <div>
           <div v-if="newest_articles">
-            <nuxt-link
-              :to="`/${content.id}`"
+            <a
+              :href"`/${content.id}`"
               class="widget_article"
               v-for="content in newest_articles"
               :key="content.id"
@@ -75,7 +75,7 @@
                 </p>
                 <p class="title">{{ content.title }}</p>
               </div>
-            </nuxt-link>
+            </a>
           </div>
           <div class="faild_getdata" v-if="!newest_articles">
             <p>データの取得に失敗しました</p>

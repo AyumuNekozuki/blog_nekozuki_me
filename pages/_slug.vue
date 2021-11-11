@@ -20,15 +20,15 @@
                   )
                 "
               />
-              <nuxt-link class="category" :to="'/category/' + article_data.category.id">{{
+              <a class="category" :href="'/category/' + article_data.category.id">{{
                 article_data.category.category_name
-              }}</nuxt-link>
+              }}</a>
               <div class="tags">
-                <nuxt-link
-                  :to="'/tag/' + tag.id"
+                <a
+                  :href="'/tag/' + tag.id"
                   v-for="tag in article_data.tag"
                   :key="tag.length"
-                  >{{ tag.tag }}</nuxt-link
+                  >{{ tag.tag }}</a
                 >
               </div>
             </div>
@@ -65,12 +65,12 @@
         </div>
       </article>
       <div class="links_wrapper">
-        <nuxt-link class="card slim next" v-if="next" :to="'/'+next.id" rel="next">
+        <a class="card slim next" v-if="next" :href="'/'+next.id" rel="next">
           {{ next.title }}
-        </nuxt-link>
-        <nuxt-link class="card slim prev" v-if="prev" :to="'/'+prev.id" rel="prev">
+        </a>
+        <a class="card slim prev" v-if="prev" :href="'/'+prev.id" rel="prev">
           {{ prev.title }}
-        </nuxt-link>
+        </a>
       </div>
       <!-- <div class="comment_wrapper">
         <div class="comments">
@@ -97,8 +97,8 @@
         <h3>最近の投稿</h3>
         <div>
           <div v-if="newest_articles">
-            <nuxt-link
-              :to="`/${content.id}`"
+            <a
+              :href="`/${content.id}`"
               class="widget_article"
               v-for="content in newest_articles"
               :key="content.id"
@@ -121,7 +121,7 @@
                 </p>
                 <p class="title">{{ content.title }}</p>
               </div>
-            </nuxt-link>
+            </a>
           </div>
           <div class="faild_getdata" v-if="!newest_articles">
             <p>データの取得に失敗しました</p>
@@ -134,7 +134,6 @@
 
 <script>
 let metas = [];
-
 import Meta from "~/mixins/meta";
 
 export default {

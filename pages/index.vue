@@ -2,11 +2,11 @@
   <div class="flexWrapper">
     <main>
       <div class="__index">
-        <nuxt-link
+        <a
           class="articlecard"
           v-for="content in query_articles"
           :key="content.id"
-          :to="`/${content.id}`"
+          :href="`/${content.id}`"
         >
           <div v-if="content.thumbnail" class="thumbnail_area">
             <img :src="content.thumbnail.url" alt="" srcset="" />
@@ -23,11 +23,11 @@
             </div>
             <h2 class="article_title">{{ content.title }}</h2>
           </div>
-        </nuxt-link>
+        </a>
         <div class="links_wrapper">
-        <nuxt-link class="card slim more" to="/archive" rel="more">
+        <a class="card slim more" href="/archive" rel="more">
           もっと見る
-        </nuxt-link>
+        </a>
       </div>
       </div>
     </main>
@@ -50,8 +50,8 @@
         <h3>最近の投稿</h3>
         <div>
           <div v-if="newest_articles">
-            <nuxt-link
-              :to="`/${content.id}`"
+            <a
+              :href="`/${content.id}`"
               class="widget_article"
               v-for="content in newest_articles"
               :key="content.id"
@@ -74,7 +74,7 @@
                 </p>
                 <p class="title">{{ content.title }}</p>
               </div>
-            </nuxt-link>
+            </a>
           </div>
           <div class="faild_getdata" v-if="!newest_articles">
             <p>データの取得に失敗しました</p>
