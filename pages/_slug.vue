@@ -65,10 +65,10 @@
         </div>
       </article>
       <div class="links_wrapper">
-        <nuxt-link class="card slim next" v-if="next" :to="next.id" rel="next">
+        <nuxt-link class="card slim next" v-if="next" :to="'/'+next.id" rel="next">
           {{ next.title }}
         </nuxt-link>
-        <nuxt-link class="card slim prev" v-if="prev" :to="prev.id" rel="prev">
+        <nuxt-link class="card slim prev" v-if="prev" :to="'/'+prev.id" rel="prev">
           {{ prev.title }}
         </nuxt-link>
       </div>
@@ -138,61 +138,71 @@ let metas = [];
 import Meta from "~/mixins/meta";
 
 export default {
-  async asyncData({ $microcms, params }) {
-    let article_data = await $microcms.get({
-      endpoint: `article/${params.slug}`,
-    });
+  async asyncData({ $microcms, params, error }) {
+    try{
+      let article_data = await $microcms.get({
+        endpoint: `article/${params.slug}`,
+      }).catch(function (error) {
+        this.$nuxt.error({
+          statusCode: 404,
+          message: error,
+        });
+      });
 
-    metas.push(params.slug);
-    metas.push(article_data.title);
-    if (article_data.body) {
-      var export_body = "";
-      for (var i = 0; i < article_data.body.length; i++) {
-        export_body = export_body + article_data.body[i].editor;
+      metas.push(params.slug);
+      metas.push(article_data.title);
+      if (article_data.body) {
+        var export_body = "";
+        for (var i = 0; i < article_data.body.length; i++) {
+          export_body = export_body + article_data.body[i].editor;
+        }
+        article_data.body = export_body;
+
+        article_data.desc = article_data.body.replace(
+          /<("[^"]*"|'[^']*'|[^'">])*>/g,
+          ""
+        );
+        article_data.desc = article_data.desc.substr(0, 29) + "…";
+        metas.push(article_data.desc);
+      } else {
+        metas.push("このページは準備中です");
       }
-      article_data.body = export_body;
+      if (article_data.thumbnail) {
+        metas.push(article_data.thumbnail.url);
+      } else {
+        metas.push("https://blog.nekozuki.me/favicon.png");
+      }
 
-      article_data.desc = article_data.body.replace(
-        /<("[^"]*"|'[^']*'|[^'">])*>/g,
-        ""
+      //prev, next
+      let data_index = await $microcms.get({
+        endpoint: "article",
+        queries: { limit: 500, fields: "id,title" },
+      });
+
+      const index = data_index.contents.findIndex(
+        (content) => content.id === params.slug
       );
-      article_data.desc = article_data.desc.substr(0, 29) + "…";
-      metas.push(article_data.desc);
-    } else {
-      metas.push("このページは準備中です");
+      const prevLink = data_index.contents[index + 1];
+      const nextLink = data_index.contents[index - 1];
+
+      //widget newest_article
+      let newest_datas = await $microcms.get({
+        endpoint: "article",
+        orders: "publishedAt",
+        queries: { limit: 5 },
+      });
+
+      return {
+        article_data,
+        newest_articles: newest_datas.contents,
+        metas,
+        prev: prevLink,
+        next: nextLink,
+      };
+
+    }catch{
+      error({ statusCode: 404, message: 'Page not Found' })
     }
-    if (article_data.thumbnail) {
-      metas.push(article_data.thumbnail.url);
-    } else {
-      metas.push("https://blog.nekozuki.me/favicon.png");
-    }
-
-    //prev, next
-    let data_index = await $microcms.get({
-      endpoint: "article",
-      queries: { limit: 500, fields: "id,title" },
-    });
-
-    const index = data_index.contents.findIndex(
-      (content) => content.id === params.slug
-    );
-    const prevLink = data_index.contents[index + 1];
-    const nextLink = data_index.contents[index - 1];
-
-    //widget newest_article
-    let newest_datas = await $microcms.get({
-      endpoint: "article",
-      orders: "publishedAt",
-      queries: { limit: 5 },
-    });
-
-    return {
-      article_data,
-      newest_articles: newest_datas.contents,
-      metas,
-      prev: prevLink,
-      next: nextLink,
-    };
   },
   mixins: [Meta],
   data() {
