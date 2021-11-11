@@ -5,7 +5,7 @@
         <h1 class="h3 mb-3">カテゴリ「{{ param_name }}」記事一覧</h1>
         <a
           class="articlecard slim"
-          v-for="content in archive_datas"
+          v-for="content in category_archive_datas"
           :key="content.id"
           :href="`/${content.id}`"
         >
@@ -25,7 +25,7 @@
             <h2 class="article_title">{{ content.title }}</h2>
           </div>
         </a>
-        <a href="/category/" class="articlecard slim" v-if="!archive_datas.length">
+        <a href="/category/" class="articlecard slim" v-if="!category_archive_datas.length">
           <div class="content_area">
             <h2 class="article_title">記事が見つかりませんでした</h2>
           </div>
@@ -93,7 +93,7 @@ let param_name, param_id;
 
 export default {
   async asyncData({ $microcms, params }) {
-    let archive_datas = await $microcms.get({
+    let category_archive_datas = await $microcms.get({
       endpoint: "article",
       orders: "publishedAt",
       queries: { limit: 500, filters: "category[equals]" + params.id },
@@ -117,7 +117,7 @@ export default {
     param_id = params.id;
 
     return {
-      archive_datas: archive_datas.contents,
+      category_archive_datas: category_archive_datas.contents,
       newest_articles: newest_datas.contents,
       param_name,
       param_id

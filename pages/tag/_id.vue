@@ -5,9 +5,9 @@
         <h1 class="h3 mb-3">タグ「{{ param_name }}」記事一覧</h1>
         <a
           class="articlecard slim"
-          v-for="content in archive_datas"
+          v-for="content in tag_archive_datas"
           :key="content.id"
-          :href"`/${content.id}`"
+          :href="`/${content.id}`"
         >
           <div v-if="content.thumbnail" class="thumbnail_area">
             <img :src="content.thumbnail.url" alt="" srcset="" />
@@ -25,7 +25,7 @@
             <h2 class="article_title">{{ content.title }}</h2>
           </div>
         </a>
-        <a href"/tag/" class="articlecard slim" v-if="!archive_datas.length">
+        <a href="/tag/" class="articlecard slim" v-if="!tag_archive_datas.length">
           <div class="content_area">
             <h2 class="article_title">記事が見つかりませんでした</h2>
           </div>
@@ -52,7 +52,7 @@
         <div>
           <div v-if="newest_articles">
             <a
-              :href"`/${content.id}`"
+              :href="`/${content.id}`"
               class="widget_article"
               v-for="content in newest_articles"
               :key="content.id"
@@ -93,35 +93,36 @@ let param_name, param_id;
 
 export default {
   async asyncData({ $microcms, params }) {
-    let archive_datas = await $microcms.get({
-      endpoint: "article",
-      orders: "publishedAt",
-      queries: { limit: 500, filters: "tag[contains]" + params.id },
-    });
+      let tag_archive_datas = await $microcms.get({
+        endpoint: "article",
+        orders: "publishedAt",
+        queries: { limit: 500, filters: "tag[contains]" + params.id },
+      });
 
-    //タイトル
-    let tag_datas = await $microcms.get({
-      endpoint: "tag",
-      orders: "publishedAt",
-      queries: { limit: 50, filters: "id[equals]" + params.id },
-    });
+      //タイトル
+      let tag_datas = await $microcms.get({
+        endpoint: "tag",
+        orders: "publishedAt",
+        queries: { limit: 50, filters: "id[equals]" + params.id },
+      });
 
-    //widget newest_article
-    let newest_datas = await $microcms.get({
-      endpoint: "article",
-      orders: "publishedAt",
-      queries: { limit: 5 },
-    });
+      //widget newest_article
+      let newest_datas = await $microcms.get({
+        endpoint: "article",
+        orders: "publishedAt",
+        queries: { limit: 5 },
+      });
 
-    param_name = tag_datas.contents[0].tag;
-    param_id = params.id;
+      param_name = tag_datas.contents[0].tag;
+      param_id = params.id;
 
-    return {
-      archive_datas: archive_datas.contents,
-      newest_articles: newest_datas.contents,
-      param_name,
-      param_id
-    };
+      return {
+        tag_archive_datas: tag_archive_datas.contents,
+        newest_articles: newest_datas.contents,
+        param_name,
+        param_id
+      };
+
   },
   mixins: [Meta],
   data() {

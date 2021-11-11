@@ -94,7 +94,7 @@ export default {
   data() {
     return {
       meta: {
-        title: "Tag - ねころぐ",
+        title: "Tag",
         type: "pages",
         url: "https://blog.nekozuki.me/tag",
       },

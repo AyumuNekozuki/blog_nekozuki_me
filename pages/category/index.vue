@@ -94,7 +94,7 @@ export default {
   data() {
     return {
       meta: {
-        title: "Category - ねころぐ",
+        title: "Category",
         type: "pages",
         url: "https://blog.nekozuki.me/category",
       },
