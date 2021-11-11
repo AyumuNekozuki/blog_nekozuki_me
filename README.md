@@ -1,44 +1,69 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/adfcc7ac-19d5-413f-a973-597c9190eeae/deploy-status)](https://app.netlify.com/sites/nekozukiblog/deploys)
+# blog_nekozuki_me
 
-# ねころぐ
-Website : https://blog.nekozuki.me 
+## Build Setup
 
-![nekolog_logo](https://blog.nekozuki.me/img/favicon.png "nekolog_logo")
+```bash
+# install dependencies
+$ yarn install
 
-## はじめに
-誤字脱字、記載している内容（文章）の修正等はこちらのリポジトリまでお願いします。
+# serve with hot reload at localhost:3000
+$ yarn dev
 
-テーマの表示崩れ等は（できれば）下記リポジトリまでお願いします。<br>
-https://github.com/AyumuNekozuki/hexo-theme-icarus 
+# build for production and launch server
+$ yarn build
+$ yarn start
 
-## 当ブログの構成
+# generate static project
+$ yarn generate
+```
 
-当ブログは Hexo を利用して構築しています。<br>
-また、リポジトリは以下の通りです。各種 Pullrequest , issue お待ちしております。
+For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
-ブログ： https://github.com/AyumuNekozuki/blog_nekozuki_me （ここ）<br>
-テーマ： https://github.com/AyumuNekozuki/hexo-theme-icarus
+## Special Directories
 
-### ライブラリ本家・フォーク元
+You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
 
-Hexo :  hexojs/hexo
+### `assets`
 
-Theme「icurus」 :  https://github.com/ppoffice/hexo-theme-icarus <br>
-「icurus」ナイトモード :  https://github.com/imaegoo/hexo-theme-icarus/tree/night3 <br>
-ナイトモード 作者デモ・解説ページ :  https://imaegoo.com
+The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
 
-GitHub Emoji :  https://github.com/crimx/hexo-filter-github-emojis <br>
-hexo PWA :  https://github.com/lavas-project/hexo-pwa
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
 
-構築参考：ももつきのーと <br>
-https://blog.yukiya.me <br>
-https://github.com/yukiyalien/blog 
+### `components`
 
-### ライセンス
-当ブログに掲載した個人の発言（文章など）は、**CC BY-ND 4.0** で利用可能です。
+The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
 
-当ブログのリポジトリなどの技術情報については、基本的に **MIT** ライセンスで利用可能です。<br>
-全てがオリジナルではないので、フォーク元等のライセンスもご確認ください。
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
 
-当リポジトリの MITライセンス全文は LICENCE.md で確認できます。
-https://github.com/AyumuNekozuki/blog_nekozuki_me/blob/master/LICENSE
+### `layouts`
+
+Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+
+
+### `pages`
+
+This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+
+### `plugins`
+
+The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+
+### `static`
+
+This directory contains your static files. Each file inside this directory is mapped to `/`.
+
+Example: `/static/robots.txt` is mapped as `/robots.txt`.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
+
+### `store`
+
+This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
