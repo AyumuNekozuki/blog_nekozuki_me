@@ -65,6 +65,9 @@
           </div>
         </div>
       </div>
+      <div class="card widget ads">
+        <adsbygoogle ad-slot="4743939808" />
+      </div>
     </div>
   </div>
 </template>

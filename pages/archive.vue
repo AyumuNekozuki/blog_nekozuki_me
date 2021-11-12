@@ -25,6 +25,9 @@
             <h2 class="article_title">{{ content.title }}</h2>
           </div>
         </a>
+        <a class="articlecard slim ads">
+          <adsbygoogle ad-slot="6548340369" />
+        </a>
       </div>
     </main>
 
@@ -76,6 +79,9 @@
             <p>データの取得に失敗しました</p>
           </div>
         </div>
+      </div>
+      <div class="card widget ads">
+        <adsbygoogle ad-slot="4743939808" />
       </div>
     </div>
   </div>

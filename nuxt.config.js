@@ -82,7 +82,7 @@ export default {
     '@nuxtjs/dotenv',
     ['@nuxtjs/google-adsense', {
       id: process.env.GA_ADSENSE_ID,
-      pageLevelAds: true,
+      pageLevelAds: false,
       analyticsUacct: process.env.GA_TRACKING_ID,
       analyticsDomainName: 'blog.nekozuki.me'
     }]

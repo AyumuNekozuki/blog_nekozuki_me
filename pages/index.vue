@@ -2,6 +2,9 @@
   <div class="flexWrapper">
     <main>
       <div class="__index">
+        <a class="articlecard ads" style="padding: 1.5rem;">
+          <adsbygoogle ad-slot="1487585374" />
+        </a>
         <a
           class="articlecard"
           v-for="content in query_articles"
@@ -27,6 +30,9 @@
         <div class="links_wrapper">
         <a class="card slim more" href="/archive" rel="more">
           もっと見る
+        </a>
+        <a class="articlecard ads" style="padding: 1.5rem;">
+          <adsbygoogle ad-slot="1487585374" />
         </a>
       </div>
       </div>
@@ -80,6 +86,9 @@
             <p>データの取得に失敗しました</p>
           </div>
         </div>
+      </div>
+      <div class="card widget ads">
+        <adsbygoogle ad-slot="4743939808" />
       </div>
     </div>
   </div>

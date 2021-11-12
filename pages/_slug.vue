@@ -77,6 +77,9 @@
           <Disqus />
         </div>
       </div> -->
+      <a class="articlecard ads" style="padding: 1.5rem;">
+        <adsbygoogle ad-slot="1487585374" />
+      </a>
     </main>
 
     <div class="sidebar">
@@ -127,6 +130,9 @@
             <p>データの取得に失敗しました</p>
           </div>
         </div>
+      </div>
+      <div class="card widget ads">
+        <adsbygoogle ad-slot="4743939808" />
       </div>
     </div>
   </div>
