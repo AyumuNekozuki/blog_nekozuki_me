@@ -303,6 +303,7 @@ a.card:hover {
         border-radius: 4px 4px 0 0;
         border-bottom: 1px solid $border1;
         opacity: 0.8;
+        object-fit: cover;
       }
     }
 
@@ -508,7 +509,7 @@ a.card:hover {
 }
 
 .links_wrapper {
-  margin-top: 1rem;
+  margin: 1.5rem 0;
   a {
     text-align: center;
     color: $textcolor1;

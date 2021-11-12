@@ -2,9 +2,6 @@
   <div class="flexWrapper">
     <main>
       <div class="__index">
-        <a class="articlecard ads" style="padding: 1.5rem;">
-          <adsbygoogle ad-slot="1487585374" />
-        </a>
         <a
           class="articlecard"
           v-for="content in query_articles"

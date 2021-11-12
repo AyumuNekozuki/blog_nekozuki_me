@@ -20,10 +20,10 @@
                   )
                 "
               />
-              <a class="category" :href="'/category/' + article_data.category.id">{{
+              <a v-if="article_data.category" class="category" :href="'/category/' + article_data.category.id">{{
                 article_data.category.category_name
               }}</a>
-              <div class="tags">
+              <div class="tags" v-if="article_data.tag">
                 <a
                   :href="'/tag/' + tag.id"
                   v-for="tag in article_data.tag"
@@ -134,6 +134,9 @@
       <div class="card widget ads">
         <adsbygoogle ad-slot="4743939808" />
       </div>
+      <script>
+        hljs.highlightAll();
+      </script>
     </div>
   </div>
 </template>
@@ -147,6 +150,7 @@ export default {
     try{
       let article_data = await $microcms.get({
         endpoint: `article/${params.slug}`,
+        query: {limit: 0}
       }).catch(function (error) {
         this.$nuxt.error({
           statusCode: 404,
@@ -158,11 +162,13 @@ export default {
       metas.push(article_data.title);
       if (article_data.body) {
         var export_body = "";
-        for (var i = 0; i < article_data.body.length; i++) {
-          export_body = export_body + article_data.body[i].editor;
-        }
+        article_data.body.forEach(bodys => {
+          export_body = export_body + bodys.editor;
+        });
         article_data.body = export_body;
 
+
+        //meta
         article_data.desc = article_data.body.replace(
           /<("[^"]*"|'[^']*'|[^'">])*>/g,
           ""
