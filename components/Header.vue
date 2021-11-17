@@ -16,7 +16,7 @@
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
+        <b-navbar-nav class="ml-auto sphide">
           <b-nav-item target="_blank" href="https://nekozuki.me">
             <font-awesome-icon :icon="['fas', 'globe']" />
           </b-nav-item>

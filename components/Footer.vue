@@ -20,6 +20,13 @@
             <p class="control">
               <a
                 class="button is-transparent is-large"
+                rel="noopener"
+                href="#__nuxt"
+              >
+                <font-awesome-icon :icon="['fas', 'chevron-up']" />
+              </a>
+              <a
+                class="button is-transparent is-large"
                 target="_blank"
                 rel="noopener"
                 title="Pullreq &amp; issue is Here"

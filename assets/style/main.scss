@@ -3,6 +3,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -169,6 +170,7 @@ a.card:hover {
       height: auto;
       aspect-ratio: 16 / 9;
       margin-right: 10px;
+      flex-shrink: 0;
       img {
         width: 100%;
         height: 100%;
@@ -225,13 +227,14 @@ a.card:hover {
 
     .thumbnail {
       margin-right: 10px;
-      width: 150px;
+      width: 100px !important;
       aspect-ratio: 16 / 9;
-      border: 1px solid #eee;
+      border: 1px solid #555;
+      flex-shrink: 0;
       img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         opacity: 0.8;
       }
     }
@@ -569,12 +572,27 @@ a.card:hover {
     }
 
     .control {
+      display: flex;
+      margin: 0;
       box-sizing: border-box;
       clear: both;
       font-size: 1rem;
+      
       position: relative;
       text-align: left;
-      margin: 0;
+
+      a{
+        margin: 0 0 0 1rem;
+        display: block;
+        padding: 5px 10px;
+        background: $background2;
+        border-radius: 50px;
+        transition: opacity ease .3s;
+
+        &:hover{
+          opacity: .8;
+        }
+      }
     }
 
     .level-end {
@@ -592,3 +610,55 @@ a.card:hover {
 }
 
 
+
+@media screen and (max-width: 768px) {
+  .sphide{
+    display: none;
+  }
+
+  .flexWrapper{
+    flex-direction: column;
+    padding: 20px 10px;
+
+    &>main{
+      width: 100%;
+      padding: 0;
+    }
+
+    &>.sidebar{
+      margin-top: 20px;
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  .articlecard{
+    padding: 0 0 10px;
+    .thumbnail_area{
+      img{
+        aspect-ratio: 16 / 9;
+        height: auto;
+      }
+    }
+    .content_area{
+      padding: 10px 10px 0;
+      .context{
+        time{
+          display: block;
+          font-size: 10px;
+        }
+      }
+      .article_title{
+        font-size: 18px;
+      }
+    }
+
+    &+.articlecard{
+      margin-top: 15px;
+    }
+
+    &.slim{
+      padding: 10px;
+    }
+  }
+}
