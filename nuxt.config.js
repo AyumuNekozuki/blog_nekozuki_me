@@ -120,11 +120,11 @@ export default {
   axios: {},
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'ja'
-    }
-  },
+  // pwa: {
+  //   manifest: {
+  //     lang: 'ja'
+  //   }
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
