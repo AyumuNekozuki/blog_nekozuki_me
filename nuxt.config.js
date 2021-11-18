@@ -1,5 +1,5 @@
-require('dotenv').config();
-import axios from 'axios';
+// require('dotenv').config();
+// import axios from 'axios';
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
