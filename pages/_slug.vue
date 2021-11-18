@@ -142,8 +142,7 @@
 </template>
 
 <script>
-let metas = [];
-import Meta from "~/mixins/meta";
+let meta_id, meta_title, meta_desc, meta_img;
 
 export default {
   async asyncData({ $microcms, params, error }) {
@@ -158,8 +157,8 @@ export default {
         });
       });
 
-      metas.push(params.slug);
-      metas.push(article_data.title);
+      meta_id = params.slug;
+      meta_title = article_data.title;
       if (article_data.body) {
         var export_body = "";
         article_data.body.forEach(bodys => {
@@ -174,14 +173,15 @@ export default {
           ""
         );
         article_data.desc = article_data.desc.substr(0, 29) + "…";
-        metas.push(article_data.desc);
+        meta_desc = article_data.desc;
       } else {
-        metas.push("このページは準備中です");
+        meta_desc = "このページは準備中です";
       }
+
       if (article_data.thumbnail) {
-        metas.push(article_data.thumbnail.url);
+        meta_img = article_data.thumbnail.url;
       } else {
-        metas.push("https://blog.nekozuki.me/favicon.png");
+        meta_img = "https://blog.nekozuki.me/favicon.png";
       }
 
       //prev, next
@@ -206,26 +206,30 @@ export default {
       return {
         article_data,
         newest_articles: newest_datas.contents,
-        metas,
         prev: prevLink,
         next: nextLink,
+        meta_id,
+        meta_title,
+        meta_desc,
+        meta_img
       };
 
     }catch{
       error({ statusCode: 404, message: 'Page not Found' })
     }
   },
-  mixins: [Meta],
-  data() {
-    return {
-      meta: {
-        title: metas[1],
-        description: metas[2],
-        type: "article",
-        url: "https://blog.nekozuki.me/" + metas[0],
-        image: metas[3],
-      },
-    };
-  },
+  head() {
+    return{
+      title: this.meta_title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.meta_desc },
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+        { hid: 'og:title', property: 'og:title', content: this.meta_title + " - ねころぐ" },
+        { hid: 'og:description', property: 'og:description', content: this.meta_desc },
+        { hid: 'og:url', property: 'og:url', content: `https://blog.nekozuki.me/${this.meta_id}` },
+        { hid: 'og:image', property: 'og:image', content: this.meta_img },
+      ],
+    }
+  }
 };
 </script>
