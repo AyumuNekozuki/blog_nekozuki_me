@@ -325,6 +325,7 @@ a.card:hover {
 
         .meta_wrap{
           display: flex;
+          flex-wrap: wrap;
 
           & > *{
             margin-left: 1rem;
@@ -367,6 +368,7 @@ a.card:hover {
 
           .tags{
             display: flex;
+            flex-wrap: wrap;
             margin: 0;
 
             a{
@@ -655,5 +657,23 @@ a.card:hover {
     &.slim{
       padding: 10px;
     }
+  }
+  .article .contentcard{
+    padding: 0 0 10px;
+
+    &> .content{
+      padding: 10px 10px 0;
+    }
+
+    .share.addtoany{
+      display: flex;
+      justify-content: center;
+    }
+  } 
+
+  ins,
+  ins > *{
+    margin-left: 0 !important;
+    width: 100% !important;
   }
 }
