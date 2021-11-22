@@ -612,6 +612,17 @@ a.card:hover {
 }
 
 
+#eorzeadb_tooltip{
+  width: 412px;
+  height: 100%;
+
+  &:hover{
+    opacity: 1 !important;
+    display: block !important;
+  }
+}
+
+
 
 @media screen and (max-width: 768px) {
   .sphide{
