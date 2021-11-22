@@ -137,6 +137,7 @@
       <script>
         hljs.highlightAll();
       </script>
+      <script src="https://img.finalfantasyxiv.com/lds/pc/global/js/eorzeadb/loader.js?v2"></script>
     </div>
   </div>
 </template>

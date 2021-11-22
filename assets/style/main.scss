@@ -1,5 +1,4 @@
 @import "_color.scss";
-@import "_animation.scss";
 
 * {
   box-sizing: border-box;
@@ -106,6 +105,9 @@ span {
   transition: opacity 0.3s ease-out 0s, transform 0.3s ease-out 0s;
   border-radius: 4px;
 
+  animation: fadeInUp;
+  animation-duration: 1s;
+
   & + .card {
     margin-top: 1.5rem;
   }
@@ -135,6 +137,9 @@ a.card:hover {
 
   transition: opacity 0.3s ease-out 0s, transform 0.3s ease-out 0s;
   border-radius: 4px;
+
+  animation: fadeInUp;
+  animation-duration: 1s;
 
   .thumbnail_area {
     width: 100%;
