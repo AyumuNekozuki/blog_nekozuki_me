@@ -56,6 +56,10 @@
           <script async src="https://static.addtoany.com/menu/page.js"></script>
           <!-- AddToAny END -->
         </div>
+        <script>
+          hljs.highlightAll();
+        </script>
+        <script src="https://img.finalfantasyxiv.com/lds/pc/global/js/eorzeadb/loader.js?v2"></script>
       </article>
     </main>
 
