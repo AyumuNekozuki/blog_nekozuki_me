@@ -14,10 +14,7 @@
                 v-if="data.publishedAt"
                 :datatime="data.publishedAt"
                 v-text="
-                  $dateFns.format(
-                    new Date(data.publishedAt),
-                    'yyyy/MM/dd'
-                  )
+                  $dateFns.format(new Date(data.publishedAt), 'yyyy/MM/dd')
                 "
               />
               <!-- <a class="category" :href="'/category/' + data.category.id">{{
@@ -33,11 +30,7 @@
               </div> -->
             </div>
           </div>
-          <div
-            class="content_body"
-            v-if="data.body"
-            v-html="data.body"
-          ></div>
+          <div class="content_body" v-if="data.body" v-html="data.body"></div>
           <div class="content_body" v-if="!data.body">
             <p class="h3 m-3 text-center">
               <span class="badge p-3 badge-danger"
@@ -93,35 +86,39 @@
 </template>
 
 <script>
-let metas = [];
-import Meta from "~/mixins/meta";
-import axios from 'axios';
-
 export default {
-  async created() {
-    try{
-      const query = this.$route.query;
-      if (query.id === undefined || query.draftKey === undefined) {
-        return;
-      }
-
-      let data = await axios.get(
-        `https://${process.env.SERVICE_DOMAIN}.microcms.io/api/v1/article/${query.id}?draftKey=${query.draftKey}`, {
-          headers: { 'X-MICROCMS-API-KEY': process.env.API_KEY }
-        });
-
-      this.data = data;
-
-      return {
-        data,
-      };
-
-    }catch{
-      error({ statusCode: 404, message: 'Page not Found' })
+  async asyncData({ $microcms, query, error }) {
+    if (query.id === undefined || query.draftKey === undefined) {
+      return;
     }
+
+    let data = await $microcms
+      .get({
+        endpoint: `article/${query.id}?draftKey=${query.draftKey}`,
+        query: { limit: 0 },
+      })
+      .catch(function (error) {
+        this.$nuxt.error({
+          statusCode: 404,
+          message: error,
+        });
+      });
+
+    if (data.body) {
+      var export_body = "";
+      data.body.forEach((bodys) => {
+        export_body = export_body + bodys.editor;
+      });
+      data.body = export_body;
+
+    }
+
+    return {
+      data,
+    };
   },
   data() {
-    return{ data: {} }
-  }
+    return { data: {} };
+  },
 };
 </script>
