@@ -143,10 +143,12 @@ a.card:hover {
 
   .thumbnail_area {
     width: 100%;
+    aspect-ratio: 16 / 9;
     img {
+      aspect-ratio: 16 / 9;
       width: 100%;
-      height: 270px;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       border-radius: 4px 4px 0 0;
       opacity: 0.8;
     }
@@ -327,19 +329,19 @@ a.card:hover {
           font-weight: 800;
           font-size: 1.75rem;
         }
-
+ 
         .meta_wrap{
           display: flex;
           flex-wrap: wrap;
 
           & > *{
-            margin-left: 1rem;
+            margin-right: 1rem;
           }
 
           time{
             &.publishedAt {
               display: block;
-              margin: 0 0 0.25rem;
+              margin-bottom: 0.25rem;
               color: $textcolor3;
             }
             &::before{
@@ -379,7 +381,7 @@ a.card:hover {
             a{
               display: block;
               color: $textcolor3;
-              margin-left: 1rem;
+              margin-right: 1rem;
 
               &:hover{
                 text-decoration: none;
