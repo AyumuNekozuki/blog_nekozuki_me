@@ -491,8 +491,9 @@ a.card:hover {
           border: none;
           opacity: 0.8;
         }
-        iframe[src*="http://embed.nicovideo.jp"]
+        iframe[src*="https://embed.nicovideo.jp"]
         {
+          border: none;
           width: 100%;
           aspect-ratio: 16 / 9;
         }
