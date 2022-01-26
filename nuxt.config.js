@@ -19,7 +19,7 @@ export default {
       { hid: 'og:url', property: 'og:url', content: 'https://blog.nekozuki.me' },
       { hid: 'og:title', property: 'og:title', content: 'ねころぐ' },
       { hid: 'og:description', property: 'og:description', content: 'ねこづきあゆむの過去ログ倉庫です。' },
-      { hid: 'og:image', property: 'og:image', content: 'https://blog.nekozuki.me/favicon.png' },
+      { hid: 'og:image', property: 'og:image', content: 'https://blog.nekozuki.me/ogp.png' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:site', content: '@nekozuki_dev' },
     ],
