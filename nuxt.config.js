@@ -1,6 +1,3 @@
-// require('dotenv').config();
-// import axios from 'axios';
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',
@@ -16,12 +13,12 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'format-detection', content: 'telephone=no' },
-      { hid: 'description', name: 'description', content: '猫月遥歩の過去ログ倉庫です。' },
+      { hid: 'description', name: 'description', content: 'ねこづきあゆむの過去ログ倉庫です。' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'ねころぐ' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:url', property: 'og:url', content: 'https://blog.nekozuki.me' },
       { hid: 'og:title', property: 'og:title', content: 'ねころぐ' },
-      { hid: 'og:description', property: 'og:description', content: '猫月遥歩の過去ログ倉庫です。' },
+      { hid: 'og:description', property: 'og:description', content: 'ねこづきあゆむの過去ログ倉庫です。' },
       { hid: 'og:image', property: 'og:image', content: 'https://blog.nekozuki.me/favicon.png' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:site', content: '@nekozuki_dev' },
@@ -40,14 +37,14 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/icomoon_fonts/icomoon-style.css',
+    '~/assets/nicoicon_fonts/nicoicon.css',
     '~/assets/style/github-dark.scss',
+    '~/assets/style/loading.scss',
     '~/assets/style/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/universe.js', mode: 'client' },
-    { src: '~/plugins/disqus', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -55,16 +52,8 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    "nuxt-microcms-module",
     '@nuxtjs/date-fns',
   ],
-  microcms: {
-    options: {
-      serviceDomain: process.env.SERVICE_DOMAIN,
-      apiKey: process.env.API_KEY,
-    },
-    mode: process.env.NODE_ENV === 'production' ? 'server' : 'all'
-  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -73,7 +62,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    // '@nuxtjs/pwa',
+    '@nuxtjs/pwa',
     'nuxt-helmet',
     'nuxt-fontawesome',
     'nuxt-webfontloader',
@@ -81,7 +70,6 @@ export default {
       style: 'dark'
     }],
     '@nuxtjs/google-gtag',
-    '@nuxtjs/dotenv',
     ['@nuxtjs/google-adsense', {
       id: process.env.GA_ADSENSE_ID,
       pageLevelAds: false,
@@ -104,8 +92,10 @@ export default {
   },
   webfontloader: {
     google: {
-      families: ['M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900'],
-      display: ['swap']
+      families: [
+        'Noto+Sans+JP:400,700',
+        'M+PLUS+Rounded+1c:100,300,400,500,700,800,900'
+      ]
     }
   },
   helmet: {
@@ -118,33 +108,39 @@ export default {
   
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    prefix: '/',
+    proxy: true,
+  },
+  proxy: {
+    '/api_mc_nekolog/': {
+      target: 'https://nekolog.microcms.io',
+      pathRewrite: {
+        '^/api_mc_nekolog/': '/api/'
+      },
+      headers: { "X-MICROCMS-API-KEY": process.env.API_KEY },
+    },
+    '/api_nicorepo/': {
+      target: 'https://public.api.nicovideo.jp',
+      pathRewrite: {
+        '^/api_nicorepo/': '/v1/timelines/nicorepo/'
+      }
+    },
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
-  // pwa: {
-  //   manifest: {
-  //     lang: 'ja'
-  //   }
-  // },
+  pwa: {
+    manifest: {
+      lang: 'ja'
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
 
-  generate: {
-    async routes() {
-      const pages = await axios.get('https://'+process.env.SERVICE_DOMAIN+'.microcms.io/api/v1/article?limit=500',{
-        headers: {'X-MICROCMS-API-KEY': process.env.API_KEY}
-      }).then((res) => res.data.contents.map((content) => ({
-        route: `/${content.id}`,
-        payload: content
-      })));
-      return pages;
-    }
-  },
-
   loading: {
-    color: '#3273dc',
+    color: '#fafafa',
     failedColor: 'red',
     height: '2px'
   },

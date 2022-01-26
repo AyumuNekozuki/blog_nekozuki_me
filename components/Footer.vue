@@ -12,7 +12,7 @@
             />
           </a>
           <p class="size-small">
-            © 2018 - 2021 AyumuNekozuki
+            © 2018 - 2022 AyumuNekozuki
           </p>
         </div>
         <div class="level-end">

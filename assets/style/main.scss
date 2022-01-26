@@ -28,27 +28,13 @@ span {
   transform: rotate(0.03deg); /* フォントシャギー対策 */
 }
 
-#universe {
-  background: radial-gradient(1600px at 70% 120%, #212750 10%, #020409 100%);
-  display: block;
-  position: fixed;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
 
 .commonHeader {
   position: relative;
-  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 3px 3px #DBDBFF;
   z-index: 10;
   transition: opacity 0.3s ease-out 0s, transform 0.3s ease-out 0s;
-  background-color: $background2;
+  background-color: $themacolor;
   backdrop-filter: none;
 
   .commonHeader_wrapper {
@@ -69,19 +55,28 @@ span {
 
   nav {
     a.navbar-brand {
-      color: $textcolor2;
+      color: $textcolor2 !important;
       &:hover {
-        color: $textcolor1;
+        color: $textcolor1 !important;
       }
     }
-  }
+    #nav-collapse{
+      .nav-link{
+        color: $background1 !important;
+        font-weight: 500;
+        &:hover{
+          color: $background2 !important;
+        }
+      }
+    }
+  } 
 }
 
 .flexWrapper {
   display: flex;
   max-width: 1192px;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 1.5rem;
 
   & > main {
     width: 66.66667%;
@@ -105,9 +100,6 @@ span {
   transition: opacity 0.3s ease-out 0s, transform 0.3s ease-out 0s;
   border-radius: 4px;
 
-  animation: fadeInUp;
-  animation-duration: 1s;
-
   & + .card {
     margin-top: 1.5rem;
   }
@@ -122,9 +114,7 @@ span {
 
 a.card:hover {
   text-decoration: none;
-  transform: translateY(-5px);
-  box-shadow: 0 7px 34px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s;
+  color: $urlcolor1;
 }
 
 .articlecard {
@@ -132,14 +122,11 @@ a.card:hover {
   background: $background2;
   border: none;
   box-shadow: $card-shadow;
-  border-radius: 4px;
+  border-radius: 10px;
   padding: 0 0 1.5rem;
 
   transition: opacity 0.3s ease-out 0s, transform 0.3s ease-out 0s;
-  border-radius: 4px;
-
-  animation: fadeInUp;
-  animation-duration: 1s;
+  border-radius: 10px;
 
   .thumbnail_area {
     width: 100%;
@@ -149,7 +136,7 @@ a.card:hover {
       width: 100%;
       height: auto;
       object-fit: contain;
-      border-radius: 4px 4px 0 0;
+      border-radius: 10px 10px 0 0;
       opacity: 0.8;
     }
   }
@@ -208,9 +195,6 @@ a.card:hover {
 
   &:hover {
     text-decoration: none;
-    transform: translateY(-5px);
-    box-shadow: 0 7px 34px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s;
     .article_title {
       color: $urlcolor1;
     }
@@ -321,12 +305,12 @@ a.card:hover {
       padding: 1.5rem 1.5rem 0;
 
       .meta {
-        padding: 0;
+        padding: 0 0 10px;
         border-bottom: 1px solid $border1;
 
         .title {
           font-family: "M PLUS Rounded 1c", sans-serif;
-          font-weight: 800;
+          font-weight: 700;
           font-size: 1.75rem;
         }
  
@@ -426,7 +410,7 @@ a.card:hover {
           font-weight: bold;
           padding: 0 0.5em;
           font-size: 1.4rem;
-          background: linear-gradient(0deg, #0a364b, #0a364b 50%, transparent 0, transparent);
+          background: linear-gradient(0deg, #DBDBFF, #DBDBFF 50%, transparent 0, transparent);
         }
 
         h4 {
@@ -480,7 +464,6 @@ a.card:hover {
           background-position: center;
           background-size: 10%;
           background-repeat: no-repeat;
-          opacity: .8;
         }
         img{
           background-image: url(@/assets/img/spin-gray.svg);
@@ -489,7 +472,6 @@ a.card:hover {
           background-repeat: no-repeat;
           max-width: 100%;
           border: none;
-          opacity: 0.8;
         }
         iframe[src*="https://embed.nicovideo.jp"]
         {
@@ -500,6 +482,10 @@ a.card:hover {
         iframe.blogcard {
           width: 100%;
           border: none;
+        }
+
+        hr{
+          border-color: #b7b7ff !important;
         }
 
         > *:last-child {
@@ -554,7 +540,7 @@ a.card:hover {
 
 .commonFooter {
   padding: 3rem 1.5rem 6rem;
-  background: $background2;
+  background: $themacolor;
 
   .container {
     padding: 0;
@@ -574,6 +560,7 @@ a.card:hover {
     .size-small {
       font-size: 0.75rem;
       margin: 0 0 0 0.75em;
+      color: $background1;
     }
 
     .control {

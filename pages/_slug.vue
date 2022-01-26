@@ -80,65 +80,14 @@
       <a class="articlecard ads" style="padding: 1.5rem;">
         <adsbygoogle ad-slot="1487585374" />
       </a>
-    </main>
 
-    <div class="sidebar">
-      <div class="card widget autor">
-        <div>
-          <figure>
-            <div>
-              <img src="@/assets/img/avater.png" alt="" srcset="" />
-            </div>
-          </figure>
-          <p class="name">猫月遥歩（ねこづきあゆむ）</p>
-          <p class="desc">
-            重度のニコ厨。VOICEROIDコンテンツを中心に、動画投稿・生配信・ツール作成など多彩に活動中。リアルでは専門学生。
-          </p>
-        </div>
-      </div>
-      <div class="card widget newest_article">
-        <h3>最近の投稿</h3>
-        <div>
-          <div v-if="newest_articles">
-            <a
-              :href="`/${content.id}`"
-              class="widget_article"
-              v-for="content in newest_articles"
-              :key="content.id"
-            >
-              <div class="thumbnail" v-if="content.thumbnail">
-                <img :src="content.thumbnail.url" alt="" srcset="" />
-              </div>
-              <div class="context_wrap">
-                <p class="time">
-                  <time
-                    v-if="content.publishedAt"
-                    :datatime="content.publishedAt"
-                    v-text="
-                      $dateFns.format(
-                        new Date(content.publishedAt),
-                        'yyyy/MM/dd'
-                      )
-                    "
-                  />
-                </p>
-                <p class="title">{{ content.title }}</p>
-              </div>
-            </a>
-          </div>
-          <div class="faild_getdata" v-if="!newest_articles">
-            <p>データの取得に失敗しました</p>
-          </div>
-        </div>
-      </div>
-      <div class="card widget ads">
-        <adsbygoogle ad-slot="4743939808" />
-      </div>
       <script>
         hljs.highlightAll();
       </script>
       <script src="https://img.finalfantasyxiv.com/lds/pc/global/js/eorzeadb/loader.js?v2"></script>
-    </div>
+    </main>
+
+    <Sidebar :newest_articles="newest_articles" />
   </div>
 </template>
 
@@ -146,12 +95,13 @@
 let meta_id, meta_title, meta_desc, meta_img;
 
 export default {
-  async asyncData({ $microcms, params, error }) {
+  async asyncData({ $axios, params, error }) {
     try{
-      let article_data = await $microcms.get({
-        endpoint: `article/${params.slug}`,
-        query: {limit: 0}
-      }).catch(function (error) {
+      let [article_data, newest_datas, data_index] = await Promise.all([
+        $axios.$get(`/api_mc_nekolog/v1/article/${params.slug}?limit=0`),
+        $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-publishedAt"),
+        $axios.$get("/api_mc_nekolog/v1/article/?fields=id%2Ctitle&limit=500")
+      ]).catch(error =>{
         this.$nuxt.error({
           statusCode: 404,
           message: error,
@@ -160,14 +110,13 @@ export default {
 
       meta_id = params.slug;
       meta_title = article_data.title;
+
       if (article_data.body) {
         var export_body = "";
         article_data.body.forEach(bodys => {
           export_body = export_body + bodys.editor;
         });
         article_data.body = export_body;
-
-
         //meta
         article_data.desc = article_data.body.replace(
           /<("[^"]*"|'[^']*'|[^'">])*>/g,
@@ -186,23 +135,11 @@ export default {
       }
 
       //prev, next
-      let data_index = await $microcms.get({
-        endpoint: "article",
-        queries: { limit: 500, fields: "id,title" },
-      });
-
       const index = data_index.contents.findIndex(
         (content) => content.id === params.slug
       );
       const prevLink = data_index.contents[index + 1];
       const nextLink = data_index.contents[index - 1];
-
-      //widget newest_article
-      let newest_datas = await $microcms.get({
-        endpoint: "article",
-        orders: "publishedAt",
-        queries: { limit: 5 },
-      });
 
       return {
         article_data,

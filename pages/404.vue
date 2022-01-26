@@ -5,9 +5,6 @@
         <a
           class="articlecard"
         >
-          <div class="thumbnail_area">
-            <img src="https://nekozuki.me/img/assets/404_img.jpg" alt="" srcset="" />
-          </div>
           <div class="content_area">
             <div class="context">
             </div>

@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'nicoicon';
+  src:  url('nicoicon.eot?s6746p');
+  src:  url('nicoicon.eot?s6746p#iefix') format('embedded-opentype'),
+    url('nicoicon.ttf?s6746p') format('truetype'),
+    url('nicoicon.woff?s6746p') format('woff'),
+    url('nicoicon.svg?s6746p#nicoicon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'nicoicon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nico-comment:before {
+  content: "\e901";
+}
+.nico-dic_hatena:before {
+  content: "\e902";
+}
+.nico-dic_hyaku:before {
+  content: "\e903";
+}
+.nico-user:before {
+  content: "\e904";
+}
+.nico-addmylist:before {
+  content: "\e905";
+}
+.nico-admin-comment:before {
+  content: "\e906";
+}
+.nico-contents-tree:before {
+  content: "\e907";
+}
+.nico-cps:before {
+  content: "\e908";
+}
+.nico-koken:before {
+  content: "\e909";
+}
+.nico-like:before {
+  content: "\e90a";
+}
+.nico-mylist:before {
+  content: "\e90b";
+}
+.nico-series:before {
+  content: "\e90c";
+}
+.nico-tvplay:before {
+  content: "\e90d";
+}
+.nico-namaco:before {
+  content: "\e90e";
+}
+.nico-tvchan:before {
+  content: "\e90f";
+}
+.nico-play:before {
+  content: "\e900";
+}
+.nico-gift:before {
+  content: "\e911";
+}
+.nico-emotion:before {
+  content: "\e910";
+}
+.nico-nicoad:before {
+  content: "\e912";
+}
