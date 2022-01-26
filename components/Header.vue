@@ -1,6 +1,6 @@
 <template>
   <header class="commonHeader">
-    <b-navbar toggleable="lg" class="commonHeader_wrapper">
+    <b-navbar toggleable="lg" type="dark" class="commonHeader_wrapper">
       <b-navbar-brand to="/">
         <h1 class="logo"></h1>
       </b-navbar-brand>

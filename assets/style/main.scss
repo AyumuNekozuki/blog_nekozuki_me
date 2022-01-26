@@ -601,6 +601,21 @@ a.card:hover {
   }
 }
 
+.card.ads,
+.articlecard.ads{
+  &::before{
+    content: "広告";
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 10px;
+    margin: .25rem;
+    padding: .1rem .25rem;
+    background: $themacolor;
+    color: $background1;
+    border-radius: 5px;
+  }
+}
 
 #eorzeadb_tooltip{
   width: 412px;
@@ -613,10 +628,16 @@ a.card:hover {
 }
 
 
+@media screen and (max-width: 991px) {
+  .sphide{
+    display: none !important;
+  }
+}
+
 
 @media screen and (max-width: 768px) {
   .sphide{
-    display: none;
+    display: none !important;
   }
 
   .flexWrapper{
