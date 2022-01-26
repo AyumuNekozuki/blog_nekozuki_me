@@ -65,12 +65,12 @@
         </div>
       </article>
       <div class="links_wrapper">
-        <a class="card slim next" v-if="next" :href="'/'+next.id" rel="next">
+        <nuxt-link class="card slim next" v-if="next" :to="'/'+next.id" rel="next">
           {{ next.title }}
-        </a>
-        <a class="card slim prev" v-if="prev" :href="'/'+prev.id" rel="prev">
+        </nuxt-link>
+        <nuxt-link class="card slim prev" v-if="prev" :to="'/'+prev.id" rel="prev">
           {{ prev.title }}
-        </a>
+        </nuxt-link>
       </div>
       <!-- <div class="comment_wrapper">
         <div class="comments">
