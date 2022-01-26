@@ -91,17 +91,14 @@
 
 <script>
 export default {
-  async asyncData({ $microcms, query, error }) {
+  async asyncData({ $axios, query, error }) {
     if (query.id === undefined || query.draftKey === undefined) {
       return;
     }
 
-    let data = await $microcms
-      .get({
-        endpoint: `article/${query.id}?draftKey=${query.draftKey}`,
-        query: { limit: 0 },
-      })
-      .catch(function (error) {
+    let data = await $axios
+      .$get(`/api_mc_nekolog/v1/article/${query.id}?draftKey=${query.draftKey}`)
+      .catch((error) => {
         this.$nuxt.error({
           statusCode: 404,
           message: error,
@@ -114,7 +111,6 @@ export default {
         export_body = export_body + bodys.editor;
       });
       data.body = export_body;
-
     }
 
     return {

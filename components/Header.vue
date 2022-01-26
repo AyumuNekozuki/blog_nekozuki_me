@@ -1,7 +1,7 @@
 <template>
   <header class="commonHeader">
-    <b-navbar toggleable="lg" type="dark" class="commonHeader_wrapper">
-      <b-navbar-brand href="/">
+    <b-navbar toggleable="lg" class="commonHeader_wrapper">
+      <b-navbar-brand to="/">
         <h1 class="logo"></h1>
       </b-navbar-brand>
 
@@ -9,9 +9,9 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="/archive">Archive</b-nav-item>
-          <b-nav-item href="/category">Category</b-nav-item>
-          <b-nav-item href="/tag">Tag</b-nav-item>
+          <b-nav-item to="/archive">Archive</b-nav-item>
+          <b-nav-item to="/category">Category</b-nav-item>
+          <b-nav-item to="/tag">Tag</b-nav-item>
           <b-nav-item href="https://nekozuki.me/about">About</b-nav-item>
         </b-navbar-nav>
 
@@ -34,7 +34,7 @@
             target="_blank"
             href="https://www.nicovideo.jp/user/45048152/video"
           >
-            <i class="icon2-niconico"></i>
+            <i class="nico-tvchan"></i>
           </b-nav-item>
           <b-nav-item target="_blank" href="https://github.com/AyumuNekozuki">
             <font-awesome-icon :icon="['fab', 'github']" />

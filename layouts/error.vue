@@ -5,9 +5,6 @@
         <a
           class="articlecard"
         >
-          <div class="thumbnail_area">
-            <img src="https://nekozuki.me/img/assets/404_img.jpg" alt="" srcset="" />
-          </div>
           <div class="content_area">
             <div class="context">
             </div>
@@ -15,9 +12,9 @@
           </div>
         </a>
         <div class="links_wrapper">
-        <a class="card slim more" href="/" rel="more">
+        <nuxt-link class="card slim more" to="/" rel="more">
           TOPにもどる
-        </a>
+        </nuxt-link>
       </div>
       </div>
     </main>
