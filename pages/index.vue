@@ -9,7 +9,10 @@
           :to="`/${content.id}`"
         >
           <div v-if="content.thumbnail" class="thumbnail_area">
-            <img :src="content.thumbnail.url" alt="" srcset="" />
+            <picture>
+              <source :srcset="content.thumbnail.url+'?fm=webp&w=960&h=540'" type="image/webp">
+              <img :src="content.thumbnail.url+'?w=960&h=540'" :alt="content.title" :srcset="content.thumbnail.url+'?w=960&h=540'" />
+            </picture>
           </div>
           <div class="content_area">
             <div class="context">

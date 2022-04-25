@@ -4,7 +4,9 @@
       <div>
         <figure>
           <div>
-            <img src="@/assets/img/avater.png" alt="" srcset="" />
+            <picture>
+              <img src="@/assets/img/avater.png" alt="猫月遥歩（ねこづきあゆむ）" srcset="@/assets/img/avater.png" />
+            </picture>
           </div>
         </figure>
         <p class="name">猫月遥歩（ねこづきあゆむ）</p>
@@ -24,7 +26,10 @@
             :key="content.id"
           >
             <div class="thumbnail" v-if="content.thumbnail">
-              <img :src="content.thumbnail.url" alt="" srcset="" />
+              <picture>
+                <source :srcset="content.thumbnail.url+'?fm=webp&w=480&h=270'" type="image/webp">
+                <img :src="content.thumbnail.url+'?w=480&h=270'" :alt="content.title" :srcset="content.thumbnail.url+'?w=480&h=270'" />
+              </picture>
             </div>
             <div class="context_wrap">
               <p class="time">
