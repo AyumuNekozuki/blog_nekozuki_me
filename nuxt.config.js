@@ -131,7 +131,18 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'ja'
+      name: 'ねころぐ',
+      lang: 'ja',
+      short_name: 'ねころぐ',
+      description: 'ねこづきあゆむの過去ログ倉庫です。',
+      display: 'standalone',
+      start_url: '/',
+      theme_color: '#7f7fff',
+      background_color: '#EFEFFF',
+    },
+    icon: {
+      source: '/static/icon.png',
+      fileName: 'icon.png'
     }
   },
 
