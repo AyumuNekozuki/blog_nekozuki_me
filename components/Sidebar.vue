@@ -53,13 +53,24 @@
     <div class="card widget ads">
       <adsbygoogle ad-slot="4743939808" />
     </div>
+    <div class="card widget twitter">
+      <h3>Twitter @nekozuki_2525</h3>
+      <client-only>
+        <Timeline id="nekozuki_2525" sourceType="profile" :options="{ height:'500', chrome: 'noheader nofooter transparent noborders' }"/>
+      </client-only>
+    </div>
   </div>
 </template>
 
 <script>
+import { Timeline } from 'vue-tweet-embed';
+
 export default {
   props: {
     newest_articles: Object
-  }
+  },
+  components:{
+    Timeline
+  },
 }
 </script>

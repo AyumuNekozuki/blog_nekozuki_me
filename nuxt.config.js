@@ -145,7 +145,7 @@ export default {
       fileName: 'icon.png'
     },
     workbox: {
-      dev: true,
+      // dev: true,
       offline: false,
       skipWaiting: true,
       clientsClaim: true,
