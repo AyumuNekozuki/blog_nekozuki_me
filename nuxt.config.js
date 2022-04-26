@@ -143,6 +143,46 @@ export default {
     icon: {
       source: '/static/icon.png',
       fileName: 'icon.png'
+    },
+    workbox: {
+      dev: true,
+      offline: false,
+      skipWaiting: true,
+      clientsClaim: true,
+      runtimeCaching: [
+        {
+          urlPattern: `/api_nicorepo/*`,
+          handler: 'staleWhileRevalidate',
+          method: 'GET',
+          strategyOptions: {
+            cacheExpiration: {
+              maxAgeSeconds: 60 * 15, // 15分
+            },
+            cacheableResponse: {
+              statuses: [200],
+            },
+          },
+        },
+        {
+          urlPattern: `/api_mc_nekolog/*`,
+          handler: 'staleWhileRevalidate',
+          method: 'GET',
+          strategyOptions: {
+            cacheExpiration: {
+              maxAgeSeconds: 60 * 15, // 15分
+            },
+            cacheableResponse: {
+              statuses: [200],
+            },
+          },
+        },
+        {
+          // デフォルト（最後に記述する）
+          urlPattern: '/*',
+          handler: 'networkFirst',
+          method: 'GET',
+        },
+      ],
     }
   },
 
