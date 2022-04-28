@@ -11,12 +11,12 @@
             <div class="meta_wrap">
               <time
                 class="publishedAt"
-                v-if="article_data.publishedAt"
-                :datatime="article_data.publishedAt"
+                v-if="article_data.revisedAt"
+                :datatime="article_data.revisedAt"
                 v-text="
                   $dateFns.format(
-                    new Date(article_data.publishedAt),
-                    'yyyy/MM/dd'
+                    new Date(article_data.revisedAt),
+                    'yyyy/MM/dd HH:mm'
                   )
                 "
               />
@@ -99,7 +99,7 @@ export default {
     try{
       let [article_data, newest_datas, data_index] = await Promise.all([
         $axios.$get(`/api_mc_nekolog/v1/article/${params.slug}?limit=0`),
-        $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-publishedAt"),
+        $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-revisedAt"),
         $axios.$get("/api_mc_nekolog/v1/article/?fields=id%2Ctitle&limit=500")
       ]).catch(error =>{
         this.$nuxt.error({

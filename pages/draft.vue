@@ -11,23 +11,23 @@
             <div class="meta_wrap">
               <time
                 class="publishedAt"
-                v-if="data.publishedAt"
-                :datatime="data.publishedAt"
+                v-if="data.revisedAt"
+                :datatime="data.revisedAt"
                 v-text="
-                  $dateFns.format(new Date(data.publishedAt), 'yyyy/MM/dd')
+                  $dateFns.format(new Date(data.revisedAt), 'yyyy/MM/dd HH:mm')
                 "
               />
-              <!-- <a class="category" :href="'/category/' + data.category.id">{{
+              <a v-if="data.category" class="category" :href="'/category/' + data.category.id">{{
                 data.category.category_name
               }}</a>
-              <div class="tags">
+              <div class="tags" v-if="data.tag">
                 <a
                   :href="'/tag/' + tag.id"
                   v-for="tag in data.tag"
                   :key="tag.length"
                   >{{ tag.tag }}</a
                 >
-              </div> -->
+              </div>
             </div>
           </div>
           <div class="content_body" v-if="data.body" v-html="data.body"></div>

@@ -34,10 +34,10 @@
             <div class="context_wrap">
               <p class="time">
                 <time
-                  v-if="content.publishedAt"
-                  :datatime="content.publishedAt"
+                  v-if="content.revisedAt"
+                  :datatime="content.revisedAt"
                   v-text="
-                    $dateFns.format(new Date(content.publishedAt), 'yyyy/MM/dd')
+                    $dateFns.format(new Date(content.revisedAt), 'yyyy/MM/dd HH:mm')
                   "
                 />
               </p>

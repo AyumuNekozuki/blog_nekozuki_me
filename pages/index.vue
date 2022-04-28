@@ -17,10 +17,10 @@
           <div class="content_area">
             <div class="context">
               <time
-                v-if="content.publishedAt"
-                :datatime="content.publishedAt"
+                v-if="content.updatedAt"
+                :datatime="content.updatedAt"
                 v-text="
-                  $dateFns.format(new Date(content.publishedAt), 'yyyy/MM/dd')
+                  $dateFns.format(new Date(content.updatedAt), 'yyyy/MM/dd HH:mm')
                 "
               />
             </div>
@@ -54,8 +54,8 @@ export default {
   },
   async asyncData({ $axios }) {
     let [query_datas, newest_datas] = await Promise.all([
-      $axios.$get("/api_mc_nekolog/v1/article?limit=10&orders=-publishedAt"),
-      $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-publishedAt"),
+      $axios.$get("/api_mc_nekolog/v1/article?limit=10&orders=-revisedAt"),
+      $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-revisedAt"),
     ]);
 
     return {

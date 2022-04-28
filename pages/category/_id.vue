@@ -15,10 +15,10 @@
           <div class="content_area">
             <div class="context">
               <time
-                v-if="content.publishedAt"
-                :datatime="content.publishedAt"
+                v-if="content.revisedAt"
+                :datatime="content.revisedAt"
                 v-text="
-                  $dateFns.format(new Date(content.publishedAt), 'yyyy/MM/dd')
+                  $dateFns.format(new Date(content.revisedAt), 'yyyy/MM/dd HH:mm')
                 "
               />
             </div>
@@ -45,9 +45,9 @@ let param_name, param_id;
 export default {
   async asyncData({ $axios, params }) {
     let [category_archive_datas, category_datas, newest_datas] = await Promise.all([
-      $axios.$get(`/api_mc_nekolog/v1/article?filters=category%5Bequals%5D${params.id}&limit=500&orders=-publishedAt`),
-      $axios.$get(`/api_mc_nekolog/v1/category?filters=id%5Bequals%5D${params.id}&limit=100&orders=-publishedAt`),
-      $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-publishedAt"),
+      $axios.$get(`/api_mc_nekolog/v1/article?filters=category%5Bequals%5D${params.id}&limit=500&orders=-revisedAt`),
+      $axios.$get(`/api_mc_nekolog/v1/category?filters=id%5Bequals%5D${params.id}&limit=100&orders=-revisedAt`),
+      $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-revisedAt"),
     ]);
 
     param_name = category_datas.contents[0].category_name;
