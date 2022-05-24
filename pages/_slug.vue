@@ -184,7 +184,7 @@ export default {
   },
   head() {
     if(this.meta_img == "https://blog.nekozuki.me/favicon.png"){
-      this.meta_img = "https://blog.nekozuki.me/opg.png";
+      this.meta_img = "https://blog.nekozuki.me/ogp.png";
     }
     return {
       title: this.meta_title,
