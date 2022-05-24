@@ -14,6 +14,16 @@
           </div>
           <div class="content_area">
             <div class="context">
+              <span class="published">
+                <time
+                  v-if="content.published_At"
+                  :datatime="content.published_At"
+                  v-text="
+                    $dateFns.format(new Date(content.published_At), 'yyyy/MM/dd')
+                  "
+                />
+              </span>
+              <span class="revised">
               <time
                 v-if="content.revisedAt"
                 :datatime="content.revisedAt"
@@ -21,6 +31,7 @@
                   $dateFns.format(new Date(content.revisedAt), 'yyyy/MM/dd HH:mm')
                 "
               />
+              </span>
             </div>
             <h2 class="article_title">{{ content.title }}</h2>
           </div>
@@ -40,8 +51,8 @@ import Meta from "~/mixins/meta";
 export default {
   async asyncData({ $axios }) {
     let [archive_datas, newest_datas] = await Promise.all([
-      $axios.$get("/api_mc_nekolog/v1/article?limit=500&orders=-revisedAt"),
-      $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-revisedAt"),
+      $axios.$get("/api_mc_nekolog/v1/article?limit=500&orders=-published_At"),
+      $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-published_At"),
     ]);
 
     return {

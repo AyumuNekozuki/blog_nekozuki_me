@@ -9,20 +9,37 @@
           <div class="meta">
             <h1 class="title">{{ article_data.title }}</h1>
             <div class="meta_wrap">
-              <time
-                class="publishedAt"
-                v-if="article_data.revisedAt"
-                :datatime="article_data.revisedAt"
-                v-text="
-                  $dateFns.format(
-                    new Date(article_data.revisedAt),
-                    'yyyy/MM/dd HH:mm'
-                  )
-                "
-              />
-              <a v-if="article_data.category" class="category" :href="'/category/' + article_data.category.id">{{
-                article_data.category.category_name
-              }}</a>
+              <div class="timewrap">
+                <time
+                  class="publishedAt"
+                  v-if="article_data.published_At"
+                  :datatime="article_data.published_At"
+                  v-text="
+                    $dateFns.format(
+                      new Date(article_data.published_At),
+                      'yyyy/MM/dd'
+                    )
+                  "
+                />
+                <time
+                  class="revisedAt"
+                  v-if="article_data.revisedAt"
+                  :datatime="article_data.revisedAt"
+                  v-text="
+                    $dateFns.format(
+                      new Date(article_data.revisedAt),
+                      'yyyy/MM/dd HH:mm'
+                    )
+                  "
+                />
+              </div>
+
+              <a
+                v-if="article_data.category"
+                class="category"
+                :href="'/category/' + article_data.category.id"
+                >{{ article_data.category.category_name }}</a
+              >
               <div class="tags" v-if="article_data.tag">
                 <a
                   :href="'/tag/' + tag.id"
@@ -65,10 +82,20 @@
         </div>
       </article>
       <div class="links_wrapper">
-        <nuxt-link class="card slim next" v-if="next" :to="'/'+next.id" rel="next">
+        <nuxt-link
+          class="card slim next"
+          v-if="next"
+          :to="'/' + next.id"
+          rel="next"
+        >
           {{ next.title }}
         </nuxt-link>
-        <nuxt-link class="card slim prev" v-if="prev" :to="'/'+prev.id" rel="prev">
+        <nuxt-link
+          class="card slim prev"
+          v-if="prev"
+          :to="'/' + prev.id"
+          rel="prev"
+        >
           {{ prev.title }}
         </nuxt-link>
       </div>
@@ -77,7 +104,7 @@
           <Disqus />
         </div>
       </div> -->
-      <a class="articlecard ads" style="padding: 1.5rem;">
+      <a class="articlecard ads" style="padding: 1.5rem">
         <adsbygoogle ad-slot="1487585374" />
       </a>
 
@@ -96,12 +123,12 @@ let meta_id, meta_title, meta_desc, meta_img;
 
 export default {
   async asyncData({ $axios, params, error }) {
-    try{
+    try {
       let [article_data, newest_datas, data_index] = await Promise.all([
         $axios.$get(`/api_mc_nekolog/v1/article/${params.slug}?limit=0`),
-        $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-revisedAt"),
-        $axios.$get("/api_mc_nekolog/v1/article/?fields=id%2Ctitle&limit=500")
-      ]).catch(error =>{
+        $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-published_At"),
+        $axios.$get("/api_mc_nekolog/v1/article/?fields=id%2Ctitle&limit=500"),
+      ]).catch((error) => {
         this.$nuxt.error({
           statusCode: 404,
           message: error,
@@ -113,7 +140,7 @@ export default {
 
       if (article_data.body) {
         var export_body = "";
-        article_data.body.forEach(bodys => {
+        article_data.body.forEach((bodys) => {
           export_body = export_body + bodys.editor;
         });
         article_data.body = export_body;
@@ -149,25 +176,36 @@ export default {
         meta_id,
         meta_title,
         meta_desc,
-        meta_img
+        meta_img,
       };
-
-    }catch{
-      error({ statusCode: 404, message: 'Page not Found' })
+    } catch {
+      error({ statusCode: 404, message: "Page not Found" });
     }
   },
   head() {
-    return{
+    return {
       title: this.meta_title,
       meta: [
-        { hid: 'description', name: 'description', content: this.meta_desc },
-        { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: this.meta_title + " - ねころぐ" },
-        { hid: 'og:description', property: 'og:description', content: this.meta_desc },
-        { hid: 'og:url', property: 'og:url', content: `https://blog.nekozuki.me/${this.meta_id}` },
-        { hid: 'og:image', property: 'og:image', content: this.meta_img },
+        { hid: "description", name: "description", content: this.meta_desc },
+        { hid: "og:type", property: "og:type", content: "article" },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.meta_title + " - ねころぐ",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.meta_desc,
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: `https://blog.nekozuki.me/${this.meta_id}`,
+        },
+        { hid: "og:image", property: "og:image", content: this.meta_img },
       ],
-    }
-  }
+    };
+  },
 };
 </script>

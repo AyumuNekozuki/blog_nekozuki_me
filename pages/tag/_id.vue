@@ -14,6 +14,16 @@
           </div>
           <div class="content_area">
             <div class="context">
+              <span class="published">
+                <time
+                  v-if="content.published_At"
+                  :datatime="content.published_At"
+                  v-text="
+                    $dateFns.format(new Date(content.published_At), 'yyyy/MM/dd')
+                  "
+                />
+              </span>
+              <span class="revised">
               <time
                 v-if="content.revisedAt"
                 :datatime="content.revisedAt"
@@ -21,6 +31,7 @@
                   $dateFns.format(new Date(content.revisedAt), 'yyyy/MM/dd HH:mm')
                 "
               />
+              </span>
             </div>
             <h2 class="article_title">{{ content.title }}</h2>
           </div>
@@ -45,9 +56,9 @@ let param_name, param_id;
 export default {
   async asyncData({ $axios, params }) {
     let [tag_archive_datas, tag_datas, newest_datas] = await Promise.all([
-      $axios.$get(`/api_mc_nekolog/v1/article?filters=tag%5Bcontains%5D${params.id}&limit=250&orders=-revisedAt`),
-      $axios.$get(`/api_mc_nekolog/v1/tag?filters=id%5Bequals%5D${params.id}&limit=50&orders=-revisedAt`),
-      $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-revisedAt"),
+      $axios.$get(`/api_mc_nekolog/v1/article?filters=tag%5Bcontains%5D${params.id}&limit=250&orders=-published_At`),
+      $axios.$get(`/api_mc_nekolog/v1/tag?filters=id%5Bequals%5D${params.id}&limit=50&orders=-published_At`),
+      $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-published_At"),
     ]);
 
       param_name = tag_datas.contents[0].tag;

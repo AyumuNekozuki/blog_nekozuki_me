@@ -25,7 +25,7 @@ import Meta from "~/mixins/meta";
 export default {
   async asyncData({ $axios }) {
     let [category_datas, newest_datas] = await Promise.all([
-      $axios.$get("/api_mc_nekolog/v1/category?limit=100"),
+      $axios.$get("/api_mc_nekolog/v1/category?limit=100&orders=-revisedAt"),
       $axios.$get("/api_mc_nekolog/v1/article?limit=5&orders=-publishedAt"),
     ]);
 

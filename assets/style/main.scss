@@ -175,6 +175,28 @@ a.card:hover {
       padding: 0;
       .context {
         font-size: 0.7rem;
+        display: flex;
+        span{
+          margin-right: 1.5rem;
+          color: #666;
+
+          &.published::before{
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f073";
+            margin-right: .25rem;
+            font-size: .3rem;
+            vertical-align: middle;
+          }
+          &.revised::before{
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f303";
+            margin-right: .25rem;
+            font-size: .3rem;
+            vertical-align: middle;
+          }
+        }
       }
       .article_title {
         font-size: 0.9rem;
@@ -318,21 +340,38 @@ a.card:hover {
             margin-right: 1rem;
           }
 
-          time{
-            &.publishedAt {
+          .timewrap{
+            display: flex;
+            width: 100%;
+
+            time{
               display: block;
               margin-bottom: 0.25rem;
-              color: $textcolor3;
-            }
-            &::before{
-              font-family: "Font Awesome 5 Free";
-              font-weight: 900;
-              content: "\f073";
-              margin-right: .25rem;
-              font-size: .5rem;
-              vertical-align: middle;
+              margin-right: 1.5rem;
+              color: $textcolor5;
+  
+              &.publishedAt::before{
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: "\f073";
+                margin-right: .25rem;
+                font-size: .5rem;
+                vertical-align: middle;
+              }
+
+              &.revisedAt::before{
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: "\f303";
+                margin-right: .25rem;
+                font-size: .5rem;
+                vertical-align: middle;
+              }
+  
             }
           }
+
+
   
           a.category{
             display: block;

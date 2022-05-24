@@ -29,8 +29,8 @@ export default {
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' }
     ],
     script: [
-      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271400990150352', crossorigin: 'anonymous'},
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js'}
+      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271400990150352', crossorigin: 'anonymous' },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js' }
     ]
   },
 
@@ -105,7 +105,7 @@ export default {
   'google-gtag': {
     id: process.env.GA_TRACKING_ID
   },
-  
+
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
