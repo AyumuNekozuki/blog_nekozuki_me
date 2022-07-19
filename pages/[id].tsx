@@ -10,8 +10,8 @@ export default function BlogId({ blog, recentdata }: any) {
         <h1>{blog.title}</h1>
         <p>{blog.publishedAt}</p>
         <div>
-          {blog.body.map((field: any) => (
-            <div dangerouslySetInnerHTML={{ __html: field.editor }}></div>
+          {blog.body.map((field: any, index: any) => (
+            <div key={index} dangerouslySetInnerHTML={{ __html: field.editor }}></div>
           ))}
         </div>
       </main>

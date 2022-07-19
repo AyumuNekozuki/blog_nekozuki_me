@@ -11,8 +11,8 @@ export default function Home({ blog, recentdata }: any) {
   return (
     <div className='flex flex-wrap max-w-screen-xl mx-auto'>
       <main className='w-full lg:w-2/3 p-2'>
-        {blog.map((ar: any) => (
-          <Link key={blog.id} href={`/${ar.id}`} data-id={ar.id}>
+        {blog.map((ar: any, index: any) => (
+          <Link key={index} href={`/${ar.id}`} data-id={ar.id}>
             <a>
               <article className='flex bg-white rounded-xl shadow-card mb-3 transition-all text-nicoblack hover:text-themepurple'>
                   <img className="w-1/3 object-cover rounded-l-xl" src={ar.thumbnail ? ar.thumbnail.url+'?fm=webp&w960&h540': '/img/ogp.png'} width='960' height="540" alt={ar.title} />

@@ -11,8 +11,8 @@ export default function RecentArticles({ recentdata }: any) {
       <div className="flex flex-col items-start p-3">
         <h5 className='text-sm'>最近の投稿</h5>
         <ul>
-          {recentdata.map((ar: any) => (
-            <Link key={recentdata.id} href={`/${ar.id}`} data-id={ar.id}>
+          {recentdata.map((ar: any, index: any) => (
+            <Link key={index} href={`/${ar.id}`} data-id={ar.id}>
               <a>
                 <li className='flex bg-white mt-3 transition-all text-nicoblack hover:text-themepurple'>
                   <img className="w-1/3 object-cover" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/img/ogp.png'} width='960' height="540" alt={ar.title} />
