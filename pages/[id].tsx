@@ -3,7 +3,7 @@ import Link from "next/link";
 import Userbox from '../components/Userbox';
 import RecentArticles from '../components/RecentArticles';
 
-export default function BlogId({ blog }: any) {
+export default function BlogId({ blog, recentdata }: any) {
   return (
     <div className='flex flex-wrap max-w-screen-xl mx-auto'>
       <main className='w-full lg:w-2/3 p-2'>
@@ -36,11 +36,16 @@ export const getStaticPaths = async () => {
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async (context: any) => {
   const id = context.params.id;
-  const data = await client.get({ endpoint: "article", contentId: id });
+
+  const [data, recentdata] = await Promise.all([
+    client.get({ endpoint: "article", contentId: id }),
+    client.get({ endpoint: "article", queries: { limit: 3, orders: '-publishedAt' }}),
+  ]);
 
   return {
     props: {
       blog: data,
+      recentdata: recentdata.contents,
     },
     revalidate: 10
   };
