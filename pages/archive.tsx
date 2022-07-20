@@ -1,36 +1,36 @@
 import Link from "next/link";
-import Image from 'next/image';
 import { client } from "../libs/client";
 import Userbox from '../components/Userbox';
 import RecentArticles from '../components/RecentArticles';
 import Date from '../components/Date';
-import Tag_replace from '../components/Tag_replace';
+import { FaCalendarAlt, FaPencilAlt } from "react-icons/fa";
 
 export default function Home({ blog, recentdata }: any) {
 
   return (
     <div className='flex flex-wrap max-w-screen-xl mx-auto'>
       <main className='w-full lg:w-2/3 p-2'>
+        <h2 className="text-2xl font-medium mt-2 mb-3 px-2">過去記事一覧</h2>
         {blog.map((ar: any, index: any) => (
           <Link key={index} href={`/${ar.id}`} data-id={ar.id}>
             <a>
               <article className='flex bg-white rounded-xl shadow-card mb-3 transition-all text-nicoblack hover:text-themepurple'>
-                  <img className="aspect-video w-1/3 object-cover rounded-l-xl" src={ar.thumbnail ? ar.thumbnail.url+'?fm=webp&w960&h540': '/img/ogp.png'} width='960' height="540" alt={ar.title} />
-                  <div className="p-3">
-                    <p className="text-sm"><Date dateString={ar.publishedAt} /></p>
-                    <h5 className="text-lg tracking-tight text-justify text-inherit font-medium break-all line-clamp-2 mb-3">{ar.title}</h5>
-                    <p className="text-xs line-clamp-2 opacity-80"><Tag_replace fieldtext={ar.body[0].editor} /></p>
+                <img className="aspect-video w-1/5 object-cover rounded-l-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/img/ogp.png'} width='960' height="540" alt={ar.title} />
+                <div className="p-3">
+                  <div className="text-xs flex items-center opacity-80 mb-2">
+                    <div className="text-xs inline-flex items-center leading-xs px-3 py-1 bg-themepurple_bg rounded-full mr-1">
+                      <FaCalendarAlt className="mr-1" /><Date dateString={ar.publishedAt} />
+                    </div>
+                    <div className="text-xs inline-flex items-center leading-xs px-3 py-1 bg-themepurple_bg rounded-full">
+                      <FaPencilAlt className="mr-1" /><Date dateString={ar.revisedAt} />
+                    </div>
                   </div>
+                  <h5 className="text-lg tracking-tight text-justify text-inherit font-medium break-all line-clamp-1">{ar.title}</h5>
+                </div>
               </article>
             </a>
           </Link>
         ))}
-
-        <Link href='/archive'>
-          <a className='block bg-white rounded-xl text-center shadow-card p-3 transition-all text-nicoblack hover:text-themepurple'>
-            もっと見る
-          </a>
-        </Link>
 
       </main>
       <aside className='w-full lg:w-1/3 p-2'>
@@ -46,8 +46,8 @@ export const getStaticProps = async () => {
     client.get({
       endpoint: "article",
       queries: {
-        limit: 10,
-        orders: '-publishedAt',
+        limit: 500,
+        orders: '-published_At',
       },
     }),
     client.get({

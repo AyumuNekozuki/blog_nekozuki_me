@@ -1,14 +1,14 @@
-import { client } from "../libs/client";
+import { client } from "../../libs/client";
 import Link from "next/link";
-import Userbox from '../components/Userbox';
-import RecentArticles from '../components/RecentArticles';
-import Date from '../components/Date';
+import Userbox from '../../components/Userbox';
+import RecentArticles from '../../components/RecentArticles';
+import Date from '../../components/Date';
 import { FaCalendarAlt, FaPencilAlt, FaFolderOpen, FaTag } from "react-icons/fa";
 import cheerio from 'cheerio';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/GitHub-Dark.css';
-import { renderToc } from '../libs/render-toc';
-import TableOfContents from '../components/TableOfContents';
+import { renderToc } from '../../libs/render-toc';
+import TableOfContents from '../../components/TableOfContents';
 
 export default function BlogId({ ar, recentdata }: any) {
 
