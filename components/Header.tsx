@@ -14,12 +14,12 @@ export default function Header() {
   }
 
   return (
-    <header className='flex bg-themepurple w-full mb-3 drop-shadow-md px-6'>
+    <header className='flex bg-themepurple w-full drop-shadow-md px-6'>
       <nav className='flex items-center justify-between flex-wrap bg-themepurple py-2 w-full z-10 top-0 mx-auto max-w-screen-lg'>
         <div className='flex items-center flex-shrink-0 text-white mr-6'>
           <h1>
-            <Link className='text-white no-underline hover:opacity-80 transition-all' href='/'>
-              <img className='cursor-pointer max-h-6' src="/img/nekolog_dark_logo.png" alt="ねころぐ" />
+            <Link className='text-white no-underline' href='/'>
+              <img className='cursor-pointer max-h-6 hover:opacity-80 transition-all' src="/img/nekolog_dark_logo.png" alt="ねころぐ" />
             </Link>
           </h1>
         </div>

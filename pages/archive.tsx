@@ -10,7 +10,7 @@ export default function Home({ blog, recentdata }: any) {
   return (
     <div className='flex flex-wrap max-w-screen-xl mx-auto'>
       <main className='w-full lg:w-2/3 p-2'>
-        <h2 className="text-2xl font-medium mt-2 mb-3 px-2">過去記事一覧</h2>
+        <h2 className="text-2xl font-medium mt-2 mb-5 px-2">過去記事一覧</h2>
         {blog.map((ar: any, index: any) => (
           <Link key={index} href={`/${ar.id}`} data-id={ar.id}>
             <a>

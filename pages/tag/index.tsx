@@ -10,7 +10,7 @@ export default function Home({ tag, recentdata }: any) {
       <main className='w-full lg:w-2/3 p-2'>
         <div className="bg-white rounded-xl shadow-card p-5">
           <h2 className="text-2xl font-medium mb-3">タグ一覧</h2>
-          {tag.map((tag: any, index: any) => (
+          {tag[0] && tag.map((tag: any, index: any) => (
             <Link key={index} href={`/tag/${tag.id}`} data-id={tag.id}>
               <a className="shadow-card text-sm inline-flex items-center leading-sm px-3 py-1 transition-all hover:bg-themepurple_bg hover:text-themepurple rounded-full mr-3 mb-3">
                 {tag.tag}

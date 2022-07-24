@@ -8,3 +8,12 @@ iframe[src*="embed.nicovideo.jp"]{
   aspect-ratio: 16 / 9;
   border-radius: .5rem;
 }
+
+.prose :where(a):not(:where([class~="not-prose"] *)){
+  color:#7f7fff;
+  text-decoration: underline;
+
+  &:hover{
+    text-decoration: none;
+  }
+}

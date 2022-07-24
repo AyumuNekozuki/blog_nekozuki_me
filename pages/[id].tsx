@@ -30,11 +30,11 @@ export default function BlogId({ ar, recentdata }: any) {
               </div>
             </div>
             <div className="text-sm flex items-center">
-              <Link href={'/category/' + ar.category.id}>
+              {ar.category && <Link href={'/category/' + ar.category.id}>
                 <a className="text-sm inline-flex items-center leading-sm px-3 py-1 transition-all bg-themepurple_bg hover:text-themepurple rounded-full mr-1">
                   <FaFolderOpen className="mr-1" />{ar.category.category_name}
                 </a>
-              </Link>
+              </Link>}
 
               {ar.tag && ar.tag.map((tag: any, index: any) => (
                 <Link key={index} href={'/tag/' + tag.id}>

@@ -5,12 +5,12 @@ import RecentArticles from '../../components/RecentArticles';
 import Date from '../../components/Date';
 import { FaCalendarAlt, FaPencilAlt } from "react-icons/fa";
 
-export default function BlogId({ ar, recentdata }: any) {
+export default function BlogId({ ar, recentdata, tagdata }: any) {
 
   return (
     <div className='flex flex-wrap max-w-screen-xl mx-auto'>
       <main className='w-full lg:w-2/3 p-2'>
-      <h2 className="text-2xl font-medium mt-2 mb-5 px-2">カテゴリ「{ar[0].category.category_name}」記事一覧</h2>
+      <h2 className="text-2xl font-medium mt-2 mb-5 px-2">タグ「{tagdata[0].tag}」記事一覧</h2>
         {ar.map((ar: any, index: any) => (
           <Link key={index} href={`/${ar.id}`} data-id={ar.id}>
             <a>
@@ -42,9 +42,9 @@ export default function BlogId({ ar, recentdata }: any) {
 }
 
 export const getStaticPaths = async () => {
-  const data = await client.get({ endpoint: "category", queries: { limit: 500 } });
+  const data = await client.get({ endpoint: "tag", queries: { limit: 500 } });
 
-  const paths = data.contents.map((content: any) => `/category/${content.id}`);
+  const paths = data.contents.map((content: any) => `/tag/${content.id}`);
   return {
     paths,
     fallback: 'blocking'
@@ -55,15 +55,18 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: any) => {
   const id = context.params.id;
 
-  const [data, recentdata] = await Promise.all([
-    client.get({ endpoint: "article", queries: { limit: 500, orders: '-publishedAt', filters: `category[equals]${id}` } }),
+  const [data, recentdata, tagdata] = await Promise.all([
+    client.get({ endpoint: "article", queries: { limit: 500, orders: '-publishedAt', filters: `tag[contains]${id}` } }),
     client.get({ endpoint: "article", queries: { limit: 3, orders: '-publishedAt' } }),
+    client.get({ endpoint: "tag", queries: { limit: 1, filters: `id[equals]${id}` } }),
   ]);
+
 
   return {
     props: {
       ar: data.contents,
       recentdata: recentdata.contents,
+      tagdata: tagdata.contents
     },
     revalidate: 10
   };
