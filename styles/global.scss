@@ -1,0 +1,28 @@
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+
+@import "_color.scss";
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "M PLUS Rounded 1c", 'sans-serif';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+td,
+dt,
+dd,
+small,
+span {
+  transform: rotate(0.03deg); /* フォントシャギー対策 */
+}
+
