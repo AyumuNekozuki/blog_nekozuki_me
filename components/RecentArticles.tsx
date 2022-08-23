@@ -15,7 +15,7 @@ export default function RecentArticles({ recentdata }: any) {
             <Link key={index} href={`/${ar.id}`} data-id={ar.id}>
               <a>
                 <li className='flex bg-white mt-3 transition-all text-nicoblack hover:text-themepurple'>
-                  <img className="w-1/3 object-cover" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/img/ogp.png'} width='960' height="540" alt={ar.title} />
+                  <img className="w-1/3 object-cover" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'} width='960' height="540" alt={ar.title} />
                   <div className='px-2'>
                     <p className="text-xs"><Date dateString={ar.publishedAt} /></p>
                     <h6 className="text-sm tracking-tight text-justify text-inherit font-medium break-all line-clamp-2 mb-3">{ar.title}</h6>

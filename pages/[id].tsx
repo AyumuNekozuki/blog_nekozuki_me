@@ -6,7 +6,7 @@ import Date from '../components/Date';
 import { FaCalendarAlt, FaPencilAlt, FaFolderOpen, FaTag } from "react-icons/fa";
 import cheerio from 'cheerio';
 import hljs from 'highlight.js';
-import 'highlight.js/styles/GitHub-Dark.css';
+import 'highlight.js/styles/gitHub-dark.css';
 import { renderToc } from '../libs/render-toc';
 import TableOfContents from '../components/TableOfContents';
 import Seo from '../components/Seo';
@@ -21,7 +21,7 @@ export default function BlogId({ ar, recentdata }: any) {
       <div className='flex flex-wrap max-w-screen-xl mx-auto'>
         <main className='w-full lg:w-2/3 p-2'>
           <article className="rounded-xl shadow-card mb-3 transition-all text-nicoblack bg-white">
-            <img className="aspect-video w-full object-cover rounded-t-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/img/ogp.png'} width='960' height="540" alt={ar.title} />
+            <img className="aspect-video w-full object-cover rounded-t-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'} width='960' height="540" alt={ar.title} />
             <div className="p-2 pb-5">
               <h2 className="text-2xl font-medium mt-2 mb-5">{ar.title}</h2>
               <div className="text-sm flex items-center opacity-80 mb-2">
@@ -46,7 +46,6 @@ export default function BlogId({ ar, recentdata }: any) {
                     </a>
                   </Link>
                 ))}
-
 
               </div>
             </div>
