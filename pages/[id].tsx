@@ -6,7 +6,7 @@ import Date from '../components/Date';
 import { FaCalendarAlt, FaPencilAlt, FaFolderOpen, FaTag } from "react-icons/fa";
 import cheerio from 'cheerio';
 import hljs from 'highlight.js';
-import 'highlight.js/styles/gitHub-dark.css';
+import 'highlight.js/styles/github-dark.css';
 import { renderToc } from '../libs/render-toc';
 import TableOfContents from '../components/TableOfContents';
 import Seo from '../components/Seo';
