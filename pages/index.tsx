@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from 'next/image';
 import { client } from "../libs/client";
 import Userbox from '../components/Userbox';
 import RecentArticles from '../components/RecentArticles';

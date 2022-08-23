@@ -1,7 +1,5 @@
 import Link from "next/link";
 import Userbox from '../components/Userbox';
-import RecentArticles from '../components/RecentArticles';
-import Date from '../components/Date';
 import Adsense from '../components/Adsense';
 import Seo from '../components/Seo';
 

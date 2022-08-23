@@ -7,14 +7,14 @@ import { FaCalendarAlt, FaPencilAlt } from "react-icons/fa";
 import Adsense from '../../components/Adsense';
 import Seo from '../../components/Seo';
 
-export default function BlogId({ ar, recentdata }: any) {
+export default function BlogId({ ar, recentdata, categorydata }: any) {
 
   return (
     <>
-      <Seo pageTitle={`カテゴリ「${ar[0].category.category_name}」記事一覧`} pagePath={`/category/${ar[0].category.id}`} />
+      <Seo pageTitle={`カテゴリ「${categorydata[0].category_name}」記事一覧`} pagePath={`/category/${categorydata[0].id}`} />
       <div className='flex flex-wrap max-w-screen-xl mx-auto'>
         <main className='w-full lg:w-2/3 p-2'>
-        <h2 className="text-2xl font-medium mt-2 mb-5 px-2">カテゴリ「{ar[0].category.category_name}」記事一覧</h2>
+        <h2 className="text-2xl font-medium mt-2 mb-5 px-2">カテゴリ「{categorydata[0].category_name}」記事一覧</h2>
           {ar.map((ar: any, index: any) => (
             <Link key={index} href={`/${ar.id}`} data-id={ar.id}>
               <a>
@@ -67,9 +67,10 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: any) => {
   const id = context.params.id;
 
-  const [data, recentdata] = await Promise.all([
+  const [data, recentdata, categorydata] = await Promise.all([
     client.get({ endpoint: "article", queries: { limit: 500, orders: '-publishedAt', filters: `category[equals]${id}` } }).catch(error => {}),
     client.get({ endpoint: "article", queries: { limit: 3, orders: '-publishedAt' } }),
+    client.get({ endpoint: "category", queries: { limit: 1, filters: `id[equals]${id}` } }).catch(error => {}),
   ]);
 
   if(!data){
@@ -80,6 +81,7 @@ export const getStaticProps = async (context: any) => {
     props: {
       ar: data.contents,
       recentdata: recentdata.contents,
+      categorydata: categorydata.contents,
     },
     revalidate: 10
   };
