@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default ({ toc }: any) => {
+export default function TableOfContents({ toc }: any) {
   return (
     <div className="max-w-sm bg-white rounded-lg shadow-card md:mx-auto mb-3 w-full">
       <div className="flex flex-col items-start p-3">
