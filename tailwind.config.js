@@ -7,9 +7,9 @@ module.exports = {
     colors:{
       transparent: 'transparent',
       current: 'currentColor',
-      'themepurple': '#7f7fff',
-      'themepurple_bg': '#efefff',
-      'themepurple_shadow': '#dbdbff',
+      'themepurple': '#3A3343',
+      'themepurple_bg': '#E9E9EA',
+      'themepurple_shadow': '#E9E9EA',
       'white': '#ffffff',
       'black': '#000000',
       'nicoblack': '#252525',
@@ -21,7 +21,7 @@ module.exports = {
     },
     extend: {
       boxShadow:{
-        'card': '0 0 3px #7f7fff',
+        'card': '0 0 3px #3A3343',
       }
     },
   },

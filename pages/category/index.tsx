@@ -2,29 +2,35 @@ import Link from "next/link";
 import { client } from "../../libs/client";
 import Userbox from '../../components/Userbox';
 import RecentArticles from '../../components/RecentArticles';
+import Adsense from '../../components/Adsense';
+import Seo from '../../components/Seo';
 
 export default function Home({ category, recentdata }: any) {
 
   return (
-    <div className='flex flex-wrap max-w-screen-xl mx-auto'>
-      <main className='w-full lg:w-2/3 p-2'>
-        <div className="bg-white rounded-xl shadow-card p-5">
-          <h2 className="text-2xl font-medium mb-3">カテゴリ一覧</h2>
-          {category.map((category: any, index: any) => (
-            <Link key={index} href={`/category/${category.id}`} data-id={category.id}>
-              <a className="shadow-card text-sm inline-flex items-center leading-sm px-3 py-1 transition-all hover:bg-themepurple_bg hover:text-themepurple rounded-full mr-3 mb-3">
-                {category.category_name}
-              </a>
-            </Link>
-          ))}
-        </div>
+    <>
+      <Seo pageTitle={'カテゴリ一覧'} pagePath={'/category'} />
+      <div className='flex flex-wrap max-w-screen-xl mx-auto'>
+        <main className='w-full lg:w-2/3 p-2'>
+          <div className="bg-white rounded-xl shadow-card p-5">
+            <h2 className="text-2xl font-medium mb-3">カテゴリ一覧</h2>
+            {category.map((category: any, index: any) => (
+              <Link key={index} href={`/category/${category.id}`} data-id={category.id}>
+                <a className="shadow-card text-sm inline-flex items-center leading-sm px-3 py-1 transition-all hover:bg-themepurple_bg hover:text-themepurple rounded-full mr-3 mb-3">
+                  {category.category_name}
+                </a>
+              </Link>
+            ))}
+          </div>
 
-      </main>
-      <aside className='w-full lg:w-1/3 p-2'>
-        <Userbox />
-        <RecentArticles recentdata={recentdata} />
-      </aside>
-    </div>
+        </main>
+        <aside className='w-full lg:w-1/3 p-2 flex flex-col items-center'>
+          <Userbox />
+          <RecentArticles recentdata={recentdata} />
+          <Adsense />
+        </aside>
+      </div>
+    </>
   );
 }
 

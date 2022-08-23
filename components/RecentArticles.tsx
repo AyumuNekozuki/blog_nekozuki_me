@@ -7,7 +7,7 @@ import Date from '../components/Date';
 export default function RecentArticles({ recentdata }: any) {
 
   return (
-    <div className="max-w-sm bg-white rounded-lg shadow-card md:mx-auto mb-3">
+    <div className="max-w-sm bg-white rounded-lg shadow-card md:mx-auto mb-3 w-full">
       <div className="flex flex-col items-start p-3">
         <h5 className='text-sm'>最近の投稿</h5>
         <ul>

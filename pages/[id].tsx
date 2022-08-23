@@ -9,55 +9,59 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/GitHub-Dark.css';
 import { renderToc } from '../libs/render-toc';
 import TableOfContents from '../components/TableOfContents';
+import Seo from '../components/Seo';
 
 export default function BlogId({ ar, recentdata }: any) {
 
   const toc = renderToc(ar.article_htmldata);
 
   return (
-    <div className='flex flex-wrap max-w-screen-xl mx-auto'>
-      <main className='w-full lg:w-2/3 p-2'>
-        <article className="rounded-xl shadow-card mb-3 transition-all text-nicoblack bg-white">
-          <img className="aspect-video w-full object-cover rounded-t-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/img/ogp.png'} width='960' height="540" alt={ar.title} />
-          <div className="p-2 pb-5">
-            <h2 className="text-2xl font-medium mt-2 mb-5">{ar.title}</h2>
-            <div className="text-sm flex items-center opacity-80 mb-2">
-              <div className="text-sm inline-flex items-center leading-sm px-3 py-1 bg-themepurple_bg rounded-full mr-1">
-                <FaCalendarAlt className="mr-1" /><Date dateString={ar.publishedAt} />
+    <>
+      <Seo pageTitle={ar.title} pageDescription={ar.article_htmldata.replace(/(<([^>]+)>)/gi, '')} pagePath={`/${ar.id}`} pageImg={ar.thumbnail ? ar.thumbnail.url : 'https://blog.nekozuki.me/ogp.png'} />
+      <div className='flex flex-wrap max-w-screen-xl mx-auto'>
+        <main className='w-full lg:w-2/3 p-2'>
+          <article className="rounded-xl shadow-card mb-3 transition-all text-nicoblack bg-white">
+            <img className="aspect-video w-full object-cover rounded-t-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/img/ogp.png'} width='960' height="540" alt={ar.title} />
+            <div className="p-2 pb-5">
+              <h2 className="text-2xl font-medium mt-2 mb-5">{ar.title}</h2>
+              <div className="text-sm flex items-center opacity-80 mb-2">
+                <div className="text-sm inline-flex items-center leading-sm px-3 py-1 bg-themepurple_bg rounded-full mr-1">
+                  <FaCalendarAlt className="mr-1" /><Date dateString={ar.publishedAt} />
+                </div>
+                <div className="text-sm inline-flex items-center leading-sm px-3 py-1 bg-themepurple_bg rounded-full">
+                  <FaPencilAlt className="mr-1" /><Date dateString={ar.revisedAt} />
+                </div>
               </div>
-              <div className="text-sm inline-flex items-center leading-sm px-3 py-1 bg-themepurple_bg rounded-full">
-                <FaPencilAlt className="mr-1" /><Date dateString={ar.revisedAt} />
-              </div>
-            </div>
-            <div className="text-sm flex items-center">
-              {ar.category && <Link href={'/category/' + ar.category.id}>
-                <a className="text-sm inline-flex items-center leading-sm px-3 py-1 transition-all bg-themepurple_bg hover:text-themepurple rounded-full mr-1">
-                  <FaFolderOpen className="mr-1" />{ar.category.category_name}
-                </a>
-              </Link>}
-
-              {ar.tag && ar.tag.map((tag: any, index: any) => (
-                <Link key={index} href={'/tag/' + tag.id}>
+              <div className="text-sm flex items-center">
+                {ar.category && <Link href={'/category/' + ar.category.id}>
                   <a className="text-sm inline-flex items-center leading-sm px-3 py-1 transition-all bg-themepurple_bg hover:text-themepurple rounded-full mr-1">
-                    <FaTag className="mr-1" />{tag.tag}
+                    <FaFolderOpen className="mr-1" />{ar.category.category_name}
                   </a>
-                </Link>
-              ))}
+                </Link>}
+
+                {ar.tag && ar.tag.map((tag: any, index: any) => (
+                  <Link key={index} href={'/tag/' + tag.id}>
+                    <a className="text-sm inline-flex items-center leading-sm px-3 py-1 transition-all bg-themepurple_bg hover:text-themepurple rounded-full mr-1">
+                      <FaTag className="mr-1" />{tag.tag}
+                    </a>
+                  </Link>
+                ))}
 
 
+              </div>
             </div>
-          </div>
-          <div className="pt-2 px-3 pb-3">
-            <div className="max-w-full w-full prose" dangerouslySetInnerHTML={{ __html: ar.article_htmldata }}></div>
-          </div>
-        </article>
-      </main>
-      <aside className='w-full lg:w-1/3 p-2 sticky top-0 h-full'>
-        <Userbox />
-        {toc.length !== 0 && <TableOfContents toc={toc} />}
-        <RecentArticles recentdata={recentdata} />
-      </aside>
-    </div>
+            <div className="pt-2 px-3 pb-3">
+              <div className="max-w-full w-full prose" dangerouslySetInnerHTML={{ __html: ar.article_htmldata }}></div>
+            </div>
+          </article>
+        </main>
+        <aside className='w-full lg:w-1/3 p-2 sticky top-0 h-full flex flex-col items-center'>
+          <Userbox />
+          {toc.length !== 0 && <TableOfContents toc={toc} />}
+          <RecentArticles recentdata={recentdata} />
+        </aside>
+      </div>
+    </>
   );
 }
 
@@ -76,9 +80,13 @@ export const getStaticProps = async (context: any) => {
   const id = context.params.id;
 
   const [data, recentdata] = await Promise.all([
-    client.get({ endpoint: "article", contentId: id }),
+    client.get({ endpoint: "article", contentId: id }).catch(error => {}),
     client.get({ endpoint: "article", queries: { limit: 3, orders: '-publishedAt' } }),
-  ]);
+  ])
+  
+  if(!data){
+    return { notFound: true };
+  }
 
   let article_htmldata: string = '';
   data.body.forEach((field: any) => {
