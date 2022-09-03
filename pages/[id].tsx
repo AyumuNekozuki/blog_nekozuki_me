@@ -10,6 +10,8 @@ import 'highlight.js/styles/github-dark.css';
 import { renderToc } from '../libs/render-toc';
 import TableOfContents from '../components/TableOfContents';
 import Seo from '../components/Seo';
+import Share from '../components/Share';
+import Adsense from '../components/Adsense';
 
 export default function BlogId({ ar, recentdata }: any) {
 
@@ -53,10 +55,12 @@ export default function BlogId({ ar, recentdata }: any) {
               <div className="max-w-full w-full prose" dangerouslySetInnerHTML={{ __html: ar.article_htmldata }}></div>
             </div>
           </article>
+					<Share pagePath={`/${ar.id}`} pageTitle={ar.title} />
         </main>
         <aside className='w-full lg:w-1/3 p-2 sticky top-0 h-full flex flex-col items-center'>
           <Userbox />
           {toc.length !== 0 && <TableOfContents toc={toc} />}
+					<Adsense />
           <RecentArticles recentdata={recentdata} />
         </aside>
       </div>
