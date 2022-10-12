@@ -13,16 +13,16 @@ export default function Home({ blog, recentdata }: any) {
     <>
       <Seo />
       <div className='flex flex-wrap max-w-screen-xl mx-auto'>
-        <main className='w-full lg:w-2/3 p-2'>
+        <main className='w-full p-2 lg:w-2/3'>
           {blog.map((ar: any, index: any) => (
             <Link key={index} href={`/${ar.id}`} data-id={ar.id}>
               <a>
-                <article className='flex bg-white rounded-xl shadow-card mb-3 transition-all text-nicoblack hover:text-themepurple hover:bg-themepurple_bg'>
-                  <img className="aspect-video w-1/3 object-cover rounded-l-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'} width='960' height="540" alt={ar.title} />
+                <article className='flex mb-3 transition-all bg-white rounded-xl shadow-card text-nicoblack hover:text-themepurple hover:bg-themepurple_bg'>
+                  <img className="object-cover w-1/3 shrink-0 aspect-video rounded-l-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'} width='960' height="540" alt={ar.title} />
                   <div className="p-3">
-                    <p className="text-sm"><Date dateString={ar.publishedAt} /></p>
-                    <h5 className="text-lg tracking-tight text-justify text-inherit font-medium break-all line-clamp-2 mb-3">{ar.title}</h5>
-                    <p className="text-xs line-clamp-2 opacity-80"><Tag_replace fieldtext={ar.body[0].editor} /></p>
+                    <p className="text-2xs sm:text-sm"><Date dateString={ar.publishedAt} /></p>
+                    <h5 className="my-1 text-sm font-medium tracking-tight text-justify break-all sm:mb-3 sm:text-lg text-inherit line-clamp-1 sm:line-clamp-2">{ar.title}</h5>
+                    <p className="text-2xs sm:text-xs line-clamp-1 sm:line-clamp-2 opacity-80"><Tag_replace fieldtext={ar.body[0].editor} /></p>
                   </div>
                 </article>
               </a>
@@ -30,21 +30,21 @@ export default function Home({ blog, recentdata }: any) {
           ))}
           {blog.length !== 0 &&
             <Link href='/archive'>
-              <a className='block bg-white rounded-xl text-center shadow-card p-3 transition-all text-nicoblack hover:text-themepurple hover:bg-themepurple_bg'>
+              <a className='block p-3 text-center transition-all bg-white rounded-xl shadow-card text-nicoblack hover:text-themepurple hover:bg-themepurple_bg'>
                 もっと見る
               </a>
             </Link>
           }
 
           {blog.length === 0 &&
-            <article className='flex bg-white rounded-xl shadow-card mb-3 transition-all text-nicoblack'>
+            <article className='flex mb-3 transition-all bg-white rounded-xl shadow-card text-nicoblack'>
               <div className="p-3">
-                <h5 className="text-lg tracking-tight text-justify text-inherit font-medium break-all line-clamp-1">データの取得に失敗しました</h5>
+                <h5 className="text-lg font-medium tracking-tight text-justify break-all text-inherit line-clamp-1">データの取得に失敗しました</h5>
               </div>
             </article>
           }
         </main>
-        <aside className='w-full lg:w-1/3 p-2 flex flex-col items-center'>
+        <aside className='flex flex-col items-center w-full p-2 lg:w-1/3'>
           <Userbox />
           <RecentArticles recentdata={recentdata} />
           <Adsense />

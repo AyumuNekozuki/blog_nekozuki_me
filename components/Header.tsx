@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header className='flex w-full px-6 bg-themepurple drop-shadow-md'>
       <nav className='top-0 z-10 flex flex-wrap items-center justify-between w-full max-w-screen-lg py-2 mx-auto bg-themepurple'>
-        <div className='flex items-center flex-shrink-0 mr-6 text-white'>
+        <div className='flex items-center flex-shrink-0-0 mr-6 text-white'>
           <h1>
             <Link className='text-white no-underline' href='/'>
               <img className='transition-all cursor-pointer max-h-6 hover:opacity-80' src="/img/nekolog_dark_logo.png" alt="ねころぐ" />
