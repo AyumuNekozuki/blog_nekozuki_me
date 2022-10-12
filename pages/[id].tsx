@@ -21,29 +21,29 @@ export default function BlogId({ ar, recentdata }: any) {
     <>
       <Seo pageTitle={ar.title} pageDescription={ar.article_htmldata.replace(/(<([^>]+)>)/gi, '')} pagePath={`/${ar.id}`} pageImg={ar.thumbnail ? ar.thumbnail.url : 'https://blog.nekozuki.me/ogp.png'} />
       <div className='flex flex-wrap max-w-screen-xl mx-auto'>
-        <main className='w-full lg:w-2/3 p-2'>
-          <article className="rounded-xl shadow-card mb-3 transition-all text-nicoblack bg-white">
-            <img className="aspect-video w-full object-cover rounded-t-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'} width='960' height="540" alt={ar.title} />
+        <main className='w-full p-2 lg:w-2/3'>
+          <article className="mb-3 transition-all bg-white rounded-xl shadow-card text-nicoblack">
+            <img className="object-cover w-full aspect-video rounded-t-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'} width='960' height="540" alt={ar.title} />
             <div className="p-2 pb-5">
-              <h2 className="text-2xl font-medium mt-2 mb-5">{ar.title}</h2>
-              <div className="text-sm flex items-center opacity-80 mb-2">
-                <div className="text-sm inline-flex items-center leading-sm px-3 py-1 bg-themepurple_bg rounded-full mr-1">
+              <h2 className="mt-2 mb-5 text-2xl font-medium">{ar.title}</h2>
+              <div className="flex items-center mb-2 text-sm opacity-80">
+                <div className="inline-flex items-center px-3 py-1 mr-1 text-sm rounded-full leading-sm bg-themepurple_bg">
                   <FaCalendarAlt className="mr-1" /><Date dateString={ar.publishedAt} />
                 </div>
-                <div className="text-sm inline-flex items-center leading-sm px-3 py-1 bg-themepurple_bg rounded-full">
+                <div className="inline-flex items-center px-3 py-1 text-sm rounded-full leading-sm bg-themepurple_bg">
                   <FaPencilAlt className="mr-1" /><Date dateString={ar.revisedAt} />
                 </div>
               </div>
-              <div className="text-sm flex items-center">
+              <div className="flex items-center text-sm">
                 {ar.category && <Link href={'/category/' + ar.category.id}>
-                  <a className="text-sm inline-flex items-center leading-sm px-3 py-1 transition-all bg-themepurple_bg hover:text-themepurple rounded-full mr-1">
+                  <a className="inline-flex items-center px-3 py-1 mr-1 text-sm transition-all rounded-full leading-sm bg-themepurple_bg hover:text-themepurple">
                     <FaFolderOpen className="mr-1" />{ar.category.category_name}
                   </a>
                 </Link>}
 
                 {ar.tag && ar.tag.map((tag: any, index: any) => (
                   <Link key={index} href={'/tag/' + tag.id}>
-                    <a className="text-sm inline-flex items-center leading-sm px-3 py-1 transition-all bg-themepurple_bg hover:text-themepurple rounded-full mr-1">
+                    <a className="inline-flex items-center px-3 py-1 mr-1 text-sm transition-all rounded-full leading-sm bg-themepurple_bg hover:text-themepurple">
                       <FaTag className="mr-1" />{tag.tag}
                     </a>
                   </Link>
@@ -51,13 +51,13 @@ export default function BlogId({ ar, recentdata }: any) {
 
               </div>
             </div>
-            <div className="pt-2 px-3 pb-3">
-              <div className="max-w-full w-full prose" dangerouslySetInnerHTML={{ __html: ar.article_htmldata }}></div>
+            <div className="px-3 pt-2 pb-3">
+              <div className="w-full max-w-full prose" dangerouslySetInnerHTML={{ __html: ar.article_htmldata }}></div>
             </div>
           </article>
 					<Share pagePath={`/${ar.id}`} pageTitle={ar.title} />
         </main>
-        <aside className='w-full lg:w-1/3 p-2 sticky top-0 h-full flex flex-col items-center'>
+        <aside className='sticky top-0 flex flex-col items-center w-full h-full p-2 lg:w-1/3'>
           <Userbox />
           {toc.length !== 0 && <TableOfContents toc={toc} />}
 					<Adsense />
