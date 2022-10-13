@@ -17,8 +17,8 @@ export default function Home({ blog, recentdata }: any) {
           {blog.map((ar: any, index: any) => (
             <Link key={index} href={`/${ar.id}`} data-id={ar.id}>
               <a>
-                <article className='flex mb-3 transition-all bg-white rounded-xl shadow-card text-nicoblack hover:text-themepurple hover:bg-themepurple_bg'>
-                  <img className="object-cover w-1/3 shrink-0 aspect-video rounded-l-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'} width='960' height="540" alt={ar.title} />
+                <article className='flex flex-col mb-3 transition-all bg-white sm:flex-row rounded-xl shadow-card text-nicoblack hover:text-themepurple hover:bg-themepurple_bg'>
+                  <img className="object-cover w-full sm:w-1/3 shrink-0 aspect-video rounded-t-xl sm:rounded-r-none sm:rounded-l-xl" src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'} width='960' height="540" alt={ar.title} />
                   <div className="p-3">
                     <p className="text-2xs sm:text-sm"><Date dateString={ar.publishedAt} /></p>
                     <h5 className="my-1 text-sm font-medium tracking-tight text-justify break-all sm:mb-3 sm:text-lg text-inherit line-clamp-1 sm:line-clamp-2">{ar.title}</h5>
