@@ -1,8 +1,6 @@
 import Link from 'next/link';
 
 export default function TableOfContents({ toc }: any) {
-	console.log(toc)
-
   return (
     <div id='toc' className="w-full mb-3 bg-white rounded-lg shadow-card md:mx-auto">
       <div className="flex flex-col items-start p-3">
