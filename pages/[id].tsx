@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { client } from "../libs/client";
 import Link from "next/link";
 import Userbox from '../components/Userbox';
@@ -16,6 +17,14 @@ import Adsense from '../components/Adsense';
 export default function BlogId({ ar, recentdata }: any) {
 
   const toc = renderToc(ar.article_htmldata);
+
+	const cont = 0;
+	useEffect(() => {
+		const checkAside = setInterval(()=>{
+			document.querySelector("aside[data-name='sidebar']")?.removeAttribute('style');
+			if(cont) clearInterval(checkAside);
+		}, 1000);
+	})
 
   return (
     <>
@@ -51,13 +60,16 @@ export default function BlogId({ ar, recentdata }: any) {
 
               </div>
             </div>
+						{toc.length !== 0 && <div className="px-3 pt-2 pb-3">
+							<TableOfContents toc={toc} />
+            </div>}
             <div className="px-3 pt-2 pb-3">
               <div className="w-full max-w-full prose" dangerouslySetInnerHTML={{ __html: ar.article_htmldata }}></div>
             </div>
           </article>
 					<Share pagePath={`/${ar.id}`} pageTitle={ar.title} />
         </main>
-        <aside className='sticky top-0 flex flex-col items-center w-full h-full p-2 lg:w-1/3'>
+        <aside data-name='sidebar' className='sticky top-0 flex flex-col items-center w-full !h-full p-2 lg:w-1/3'>
           <Userbox />
           {toc.length !== 0 && <TableOfContents toc={toc} />}
 					<Adsense />

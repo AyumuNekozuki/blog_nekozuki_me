@@ -12,10 +12,10 @@ const Adsense: React.FC = () => {
   }, [asPath])
 
   return (
-    <div className="max-w-sm bg-white rounded-lg shadow-card md:mx-auto mb-3 w-full">
+    <div className="w-full mb-3 bg-white rounded-lg  shadow-card md:mx-auto">
       <div className="flex flex-col items-start p-3">
         <h5 className='text-sm'>広告</h5>
-          <ins className='adsbygoogle block w-full'
+          <ins className='block w-full adsbygoogle'
           data-ad-format='auto'
           data-ad-client='ca-pub-7271400990150352'
           data-ad-slot='4743939808'

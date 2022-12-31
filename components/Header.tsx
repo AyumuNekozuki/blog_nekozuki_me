@@ -26,8 +26,8 @@ export default function Header() {
           </button>
         </div>
 
-        <div className='flex-grow hidden w-full h-0 pt-3 overflow-hidden transition-all lg:h-f lg:flex lg:items-center lg:w-auto lg:pt-0' id='nav-content'>
-          <ul className='items-center justify-end flex-1 list-reset lg:flex'>
+        <div className='flex-grow hidden w-full h-0 pt-3 overflow-hidden transition-all lg:h-f lg:flex lg:items-center lg:w-auto lg:h-full lg:pt-0' id='nav-content'>
+          <ul className='items-center justify-end flex-1 list-reset lg:flex lg:pt-0'>
             <li className='mr-3'>
               <Link href='/archive'><a className='inline-block px-2 py-1 font-medium text-white no-underline transition-all font-mplus hover:opacity-80'>Archive</a></Link>
             </li>
