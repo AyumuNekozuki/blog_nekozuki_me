@@ -26,3 +26,20 @@ span {
   transform: rotate(0.03deg); /* フォントシャギー対策 */
 }
 
+#toc{
+	[data-name='h3']{
+		margin-left: 1.5rem;
+	}
+
+	[data-name='h4']{
+		margin-left: 3rem;
+	}
+
+	[data-name='h5']{
+		margin-left: 4.5rem;
+	}
+
+	[data-name='h6']{
+		margin-left: 6rem;
+	}
+}
