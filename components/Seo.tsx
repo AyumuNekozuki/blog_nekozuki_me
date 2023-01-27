@@ -20,7 +20,7 @@ const defaultContents = {
 
 const Seo: VFC<MetaData> = ({ pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight, pageType }) => {
 	const title = pageTitle ? `${pageTitle} | ${defaultContents.siteName}` : defaultContents.defaultTitle;
-	const description = pageDescription ? `${pageDescription?.substring(0, 20)}…` : defaultContents.defaultDescription;
+	const description = pageDescription ? `${pageDescription?.substring(0, 70)}…` : defaultContents.defaultDescription;
 	const url = pagePath ? `${defaultContents.defaultPath}${pagePath}` : defaultContents.defaultPath;
 	const imgUrl = pageImg ? pageImg : 'https://blog.nekozuki.me/ogp.png';
 	const imgWidth = pageImgWidth ? pageImgWidth : 1280;
