@@ -1,7 +1,4 @@
 import Link from 'next/link';
-import { client } from '../libs/client';
-import { FaTwitter, FaGlobe, FaMastodon, FaGithub } from 'react-icons/fa';
-import { SiNiconico } from 'react-icons/si';
 import Date from '../components/Date';
 
 export default function RecentArticles({ recentdata }: any) {
