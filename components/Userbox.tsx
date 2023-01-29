@@ -30,7 +30,7 @@ export default function Userbox() {
 						<FaTwitter />
 					</a>
 					<a
-						href='https://mi.nekozuki.me/@AyumuNekozuki'
+						href='https://mi.mashiro.site/@AyumuNekozuki'
 						target='_blank'
 						rel='noopener noreferrer me'
 						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all bg-blue-700 rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-300 hover:fill-white'>
