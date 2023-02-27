@@ -2,7 +2,7 @@ import { client } from '../../libs/client';
 import Link from 'next/link';
 import Userbox from '../../components/Userbox';
 import RecentArticles from '../../components/RecentArticles';
-import Date from '../../components/Date';
+import DateTimeObj from '../../components/DateTimeObj';
 import { FaCalendarAlt, FaPencilAlt } from 'react-icons/fa';
 import Adsense from '../../components/Adsense';
 import Seo from '../../components/Seo';
@@ -29,11 +29,11 @@ export default function BlogId({ ar, recentdata, tagdata }: any) {
 										<div className='flex items-center mb-2 text-2xs sm:text-sm opacity-80'>
 											<div className='inline-flex items-center px-3 py-1 mr-1 rounded-full text-2xs sm:text-sm leading-xs bg-themepurple_bg'>
 												<FaCalendarAlt className='mr-1' />
-												<Date dateString={ar.publishedAt} />
+												<DateTimeObj dateString={ar.publishedAt} />
 											</div>
 											<div className='inline-flex items-center px-3 py-1 rounded-full text-2xs sm:text-sm leading-xs bg-themepurple_bg'>
 												<FaPencilAlt className='mr-1' />
-												<Date dateString={ar.revisedAt} />
+												<DateTimeObj dateString={ar.revisedAt} />
 											</div>
 										</div>
 										<h5 className='text-sm font-medium tracking-tight text-justify break-all sm:text-lg text-inherit line-clamp-1'>{ar.title}</h5>

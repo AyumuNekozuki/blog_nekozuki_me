@@ -19,35 +19,35 @@ export default function Userbox() {
 						href='https://prof.nekozuki.me'
 						target='_blank'
 						rel='noopener noreferrer me'
-						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all bg-blue-700 rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-300'>
+						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-300'>
 						<FaGlobe />
 					</a>
 					<a
 						href='https://twitter.com/nekozuki_2525'
 						target='_blank'
 						rel='noopener noreferrer me'
-						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all bg-blue-700 rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple -300'>
+						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple -300'>
 						<FaTwitter />
 					</a>
 					<a
 						href='https://mi.mashiro.site/@AyumuNekozuki'
 						target='_blank'
 						rel='noopener noreferrer me'
-						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all bg-blue-700 rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-300 hover:fill-white'>
+						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-300 hover:fill-white'>
 						<MisskeyIcon className='w-4 h-4 font-medium fill-current' />
 					</a>
 					<a
 						href='https://www.nicovideo.jp/user/45048152'
 						target='_blank'
 						rel='noopener noreferrer me'
-						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all bg-blue-700 rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-300'>
+						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-300'>
 						<SiNiconico />
 					</a>
 					<a
 						href='https://github.com/AyumuNekozuki'
 						target='_blank'
 						rel='noopener noreferrer me'
-						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all bg-blue-700 rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple -300'>
+						className='inline-flex items-center px-3 py-2 font-medium text-center transition-all rounded-lg text-nicoblack hover:bg-themepurple hover:text-white focus:ring-4 focus:outline-none focus:ring-purple -300'>
 						<FaGithub />
 					</a>
 				</div>

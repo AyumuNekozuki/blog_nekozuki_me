@@ -5,12 +5,19 @@ import '../styles/article.scss';
 import React from 'react';
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import Script from 'next/script';
+
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 import * as gtag from '../libs/gtag';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 	const router = useRouter();

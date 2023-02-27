@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { client } from '../libs/client';
 import Userbox from '../components/Userbox';
 import RecentArticles from '../components/RecentArticles';
-import Date from '../components/Date';
+import DateTimeObj from '../components/DateTimeObj';
 import Adsense from '../components/Adsense';
 import Tag_replace from '../components/Tag_replace';
 import Seo from '../components/Seo';
@@ -26,9 +26,11 @@ export default function Home({ blog, recentdata }: any) {
 									/>
 									<div className='p-3'>
 										<p className='text-2xs sm:text-sm'>
-											<Date dateString={ar.publishedAt} />
+											<DateTimeObj dateString={ar.publishedAt} />
 										</p>
-										<h5 className='my-1 text-sm font-medium tracking-tight text-justify break-all sm:mb-3 sm:text-lg text-inherit line-clamp-1 sm:line-clamp-2'>{ar.title}</h5>
+										<h5 className='my-1 text-sm font-medium tracking-tight text-justify break-all sm:mb-3 sm:text-lg text-inherit line-clamp-1 sm:line-clamp-2'>
+											{ar.title}
+										</h5>
 										<p className='text-2xs sm:text-xs line-clamp-1 sm:line-clamp-2 opacity-80'>
 											<Tag_replace fieldtext={ar.body[0].editor} />
 										</p>
@@ -39,7 +41,9 @@ export default function Home({ blog, recentdata }: any) {
 					))}
 					{blog.length !== 0 && (
 						<Link href='/archive'>
-							<a className='block p-3 text-center transition-all bg-white rounded-xl shadow-card text-nicoblack hover:text-themepurple hover:bg-themepurple_bg'>もっと見る</a>
+							<a className='block p-3 text-center transition-all bg-white rounded-xl shadow-card text-nicoblack hover:text-themepurple hover:bg-themepurple_bg'>
+								もっと見る
+							</a>
 						</Link>
 					)}
 

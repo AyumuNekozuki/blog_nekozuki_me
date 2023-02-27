@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Date from '../components/Date';
+import DateTimeObj from './DateTimeObj';
 
 export default function RecentArticles({ recentdata }: any) {
 	return (
@@ -11,10 +11,16 @@ export default function RecentArticles({ recentdata }: any) {
 						<Link key={index} href={`/${ar.id}`} data-id={ar.id}>
 							<a>
 								<li className='flex my-3 transition-all bg-white text-nicoblack hover:text-themepurple'>
-									<img className='object-cover w-1/3 rounded-lg aspect-video' src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'} width='960' height='540' alt={ar.title} />
+									<img
+										className='object-cover w-1/3 rounded-lg aspect-video'
+										src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'}
+										width='960'
+										height='540'
+										alt={ar.title}
+									/>
 									<div className='px-2'>
 										<p className='text-xs'>
-											<Date dateString={ar.publishedAt} />
+											<DateTimeObj dateString={ar.publishedAt} />
 										</p>
 										<h6 className='text-sm font-medium leading-5 tracking-tight text-justify break-all text-inherit line-clamp-2'>{ar.title}</h6>
 									</div>
