@@ -1,0 +1,61 @@
+import '@/styles/globals.scss';
+
+import { useEffect } from 'react';
+import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+import Script from 'next/script';
+import { Zen_Maru_Gothic } from 'next/font/google';
+
+import * as gtag from '@/libs/gtag';
+import NextProgress from 'next-progress';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+const zen_maru_gothic = Zen_Maru_Gothic({
+  variable: '--font-zmg',
+  weight: ['300', '400', '500', '700', '900'],
+  display: 'swap',
+  subsets: ['latin'],
+});
+
+export default function App({ Component, pageProps }: AppProps) {
+  const Router = useRouter();
+
+  // Google Analytics
+  useEffect(() => {
+    const handleRouterChange = (url: any) => {
+      gtag.pageview(url);
+    };
+    Router.events.on('routeChangeComplete', handleRouterChange);
+    return () => {
+      Router.events.off('routeChangeComplete', handleRouterChange);
+    };
+  }, [Router.events]);
+
+  // Next Font
+
+  return (
+    <div className={`w-full min-h-screen ${zen_maru_gothic.className} font-zmg`}>
+      <Script strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`} />
+      <Script
+        id='gtag-init'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: `
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+ 
+           gtag('config', '${gtag.GA_MEASUREMENT_ID}');
+           `,
+        }}
+      />
+      <NextProgress color="#AE9C9A" options={{ showSpinner: false }} />
+      <Header />
+      <main className="container max-w-4xl px-4 pt-24 pb-8 mx-auto">
+        <Component {...pageProps} />
+      </main>
+      <Footer />
+    </div>
+  );
+}

@@ -1,0 +1,12 @@
+.header{
+  // glassmophism
+  background: rgba( 246, 245, 241, 0.4 );
+  box-shadow: 0 8px 32px 0 rgba( 174, 156, 154, 0.37 );
+  backdrop-filter: blur( 7px );
+  -webkit-backdrop-filter: blur( 7px );
+  border-radius: 10px;
+  border: 1px solid rgba( 174, 156, 154, 0.18 );
+
+  width: calc(100% - 2rem);
+  z-index: 100;
+}
