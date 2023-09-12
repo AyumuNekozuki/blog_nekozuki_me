@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Path: styles/tailwind.css
+
+// Video Player
+iframe[src*='embed.nicovideo.jp'],
+iframe[src*='www.youtube.com'],
+iframe[src*='www.youtube-nocookie.com'] {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.5rem;
+}
+
+// niconico blog parts
+iframe[src*='ext.nicovideo.jp'],
+iframe[src*='live.nicovideo.jp/embed'] {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+// blog parts
+iframe[src*='hatenablog-parts.com'],
+iframe[src*='cdn.iframe.ly'] {
+  width: 100%;
+}

@@ -1,156 +1,82 @@
-import { useEffect } from 'react';
-import { client } from '../libs/client';
-import Link from 'next/link';
-import Userbox from '../components/Userbox';
-import RecentArticles from '../components/RecentArticles';
-import DateTimeObj from '../components/DateTimeObj';
-import { FaCalendarAlt, FaPencilAlt, FaFolderOpen, FaTag, FaExclamationTriangle } from 'react-icons/fa';
-import cheerio from 'cheerio';
+import { load } from 'cheerio';
 import hljs from 'highlight.js';
+import client from '@/libs/client';
+
 import 'highlight.js/styles/github-dark.css';
-import { renderToc } from '../libs/render-toc';
-import TableOfContents from '../components/TableOfContents';
-import Seo from '../components/Seo';
-import Share from '../components/Share';
-import Adsense from '../components/Adsense';
-import { addYears, isBefore, parseISO } from 'date-fns';
+import UserCard from '@/components/UserCard';
+import ArticleCard from '@/components/ArticleCard';
+import SEO from '@/components/SEO';
 
-export default function BlogId({ ar, recentdata }: any) {
-	const toc = renderToc(ar.article_htmldata);
+const ArticlePage = ({ data }: any) => {
 
-	const cont = 0;
-	useEffect(() => {
-		const checkAside = setInterval(() => {
-			document.querySelector("aside[data-name='sidebar']")?.removeAttribute('style');
-			if (cont) clearInterval(checkAside);
-		}, 1000);
-	});
-
-	return (
-		<>
-			<Seo
-				pageTitle={ar.title}
-				pageDescription={ar.article_htmldata.replace(/(<([^>]+)>)/gi, '')}
-				pagePath={`/${ar.id}`}
-				pageImg={ar.thumbnail ? ar.thumbnail.url : 'https://blog.nekozuki.me/ogp.png'}
-			/>
-			<div className='flex flex-wrap max-w-screen-xl mx-auto'>
-				<main className='w-full p-2 lg:w-2/3'>
-					<article className='mb-3 transition-all bg-white rounded-xl shadow-card text-nicoblack'>
-						<img
-							className='object-cover w-full aspect-video rounded-t-xl'
-							src={ar.thumbnail ? ar.thumbnail.url + '?fm=webp&w960&h540' : '/ogp.png'}
-							width='960'
-							height='540'
-							alt={ar.title}
-						/>
-						<div className='p-2 pb-5'>
-							<h2 className='mt-2 mb-5 text-2xl font-medium'>{ar.title}</h2>
-							<div className='flex items-center mb-2 text-sm opacity-80'>
-								<div className='inline-flex items-center px-3 py-1 mr-1 text-sm rounded-full leading-sm bg-themepurple_bg'>
-									<FaCalendarAlt className='mr-1' />
-									<DateTimeObj dateString={ar.publishedAt} />
-								</div>
-								<div className='inline-flex items-center px-3 py-1 text-sm rounded-full leading-sm bg-themepurple_bg'>
-									<FaPencilAlt className='mr-1' />
-									<DateTimeObj dateString={ar.revisedAt} />
-								</div>
-							</div>
-							<div className='flex items-center text-sm'>
-								{ar.category && (
-									<Link href={'/category/' + ar.category.id}>
-										<a className='inline-flex items-center px-3 py-1 mr-1 text-sm transition-all rounded-full leading-sm bg-themepurple_bg hover:text-themepurple'>
-											<FaFolderOpen className='mr-1' />
-											{ar.category.category_name}
-										</a>
-									</Link>
-								)}
-
-								{ar.tag &&
-									ar.tag.map((tag: any, index: any) => (
-										<Link key={index} href={'/tag/' + tag.id}>
-											<a className='inline-flex items-center px-3 py-1 mr-1 text-sm transition-all rounded-full leading-sm bg-themepurple_bg hover:text-themepurple'>
-												<FaTag className='mr-1' />
-												{tag.tag}
-											</a>
-										</Link>
-									))}
-							</div>
-						</div>
-						{isBefore(parseISO(ar.revisedAt), addYears(new Date(), -1)) && (
-							<div className='flex items-center gap-2 p-4 mx-2 mb-4 rounded-lg bg-amber-100 text-amber-900'>
-								<FaExclamationTriangle />
-								この記事は最終更新から１年以上経過しています。
-							</div>
-						)}
-						{toc.length !== 0 && (
-							<div className='px-3 pt-2 pb-3'>
-								<TableOfContents toc={toc} />
-							</div>
-						)}
-						<div className='px-3 pt-2 pb-3'>
-							<div className='w-full max-w-full prose' dangerouslySetInnerHTML={{ __html: ar.article_htmldata }}></div>
-						</div>
-					</article>
-					<Share pagePath={`/${ar.id}`} pageTitle={ar.title} />
-				</main>
-				<aside data-name='sidebar' className='sticky top-0 flex flex-col items-center w-full !h-full p-2 lg:w-1/3'>
-					<Userbox />
-					{toc.length !== 0 && <TableOfContents toc={toc} />}
-					<Adsense />
-					<RecentArticles recentdata={recentdata} />
-				</aside>
-			</div>
-		</>
-	);
-}
+  return (
+    <>
+      <SEO
+        pageTitle={data.title}
+        pageDescription={data.article_htmldata.replace(/(<([^>]+)>)/gi, '')}
+        pagePath={`/${data.id}`}
+        pageImg={data.thumbnail ? data.thumbnail.url : 'https://blog.nekozuki.me/mashiro.png'}
+      />
+      <ArticleCard article={data} />
+      <UserCard type='autor' />
+    </>
+  );
+};
+export default ArticlePage;
 
 export const getStaticPaths = async () => {
-	const data = await client.get({ endpoint: 'article' });
+  const data = await client.get({ 
+    endpoint: 'article',
+    queries: {
+      limit: 500,
+      orders: '-published_At',
+    },
+  });
 
-	const paths = data.contents.map((content: any) => `/${content.id}`);
-	return {
-		paths,
-		fallback: 'blocking',
-	};
+  const paths = data.contents.map((content: any) => `/${content.id}`);
+  return {
+    paths,
+    fallback: 'blocking',
+  };
 };
 
-// データをテンプレートに受け渡す部分の処理を記述します
+
 export const getStaticProps = async (context: any) => {
-	const id = context.params.id;
+  const id = context.params.id;
 
-	const [data, recentdata] = await Promise.all([
-		client.get({ endpoint: 'article', contentId: id }).catch((error) => {}),
-		client.get({ endpoint: 'article', queries: { limit: 3, orders: '-publishedAt' } }),
-	]);
+  const articleData = await client
+    .get({
+      endpoint: 'article',
+      contentId: id,
+    })
+    .catch((error) => {});
 
-	if (!data) {
-		return { notFound: true };
-	}
+  if (!articleData) {
+    return { notFound: true };
+  }
 
-	let article_htmldata: string = '';
-	data.body.forEach((field: any) => {
-		const $ = cheerio.load(field.editor);
-		$('pre code').each((_, elm) => {
-			const result = hljs.highlightAuto($(elm).text());
-			$(elm).html(result.value);
-			$(elm).addClass('hljs');
-		});
+  let article_htmldata: string = '';
+  articleData.body.forEach((field: any) => {
+    const cheerio = load(field.editor);
+    cheerio('pre code').each((_, elm) => {
+      const result = hljs.highlightAuto(cheerio(elm).text());
+      cheerio(elm).html(result.value);
+      cheerio(elm).addClass('hljs');
+    });
 
-		article_htmldata += $.html();
-	});
+    article_htmldata += cheerio.html();
+  });
 
-	let returnData = data;
-	returnData = {
-		...data,
-		article_htmldata: article_htmldata,
-	};
+  let returnData = articleData;
+  returnData = {
+    ...articleData,
+    article_htmldata: article_htmldata,
+  };
 
-	return {
-		props: {
-			ar: returnData,
-			recentdata: recentdata.contents,
-		},
-		revalidate: 10,
-	};
+  return {
+    props: {
+      data: returnData,
+    },
+    revalidate: 10,
+  };
 };

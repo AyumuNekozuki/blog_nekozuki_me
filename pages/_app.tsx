@@ -1,61 +1,61 @@
-import 'tailwindcss/tailwind.css';
-import '/styles/global.scss';
-import '../styles/article.scss';
+import '@/styles/globals.scss';
 
-import React from 'react';
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import Script from 'next/script';
+import { Zen_Maru_Gothic } from 'next/font/google';
 
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
+import * as gtag from '@/libs/gtag';
+import NextProgress from 'next-progress';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
-import * as gtag from '../libs/gtag';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+const zen_maru_gothic = Zen_Maru_Gothic({
+  variable: '--font-zmg',
+  weight: ['300', '400', '500', '700', '900'],
+  display: 'swap',
+  subsets: ['latin'],
+});
 
-Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
+export default function App({ Component, pageProps }: AppProps) {
+  const Router = useRouter();
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-	const router = useRouter();
+  // Google Analytics
+  useEffect(() => {
+    const handleRouterChange = (url: any) => {
+      gtag.pageview(url);
+    };
+    Router.events.on('routeChangeComplete', handleRouterChange);
+    return () => {
+      Router.events.off('routeChangeComplete', handleRouterChange);
+    };
+  }, [Router.events]);
 
-	useEffect(() => {
-		const handleRouterChange = (url: any) => {
-			gtag.pageview(url);
-		};
-		router.events.on('routeChangeComplete', handleRouterChange);
-		return () => {
-			router.events.off('routeChangeComplete', handleRouterChange);
-		};
-	}, [router.events]);
+  // Next Font
 
-	return (
-		<>
-			<Script strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`} />
-			<Script
-				id='gtag-init'
-				strategy='afterInteractive'
-				dangerouslySetInnerHTML={{
-					__html: `
+  return (
+    <div className={`w-full min-h-screen ${zen_maru_gothic.className} font-zmg`}>
+      <Script strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`} />
+      <Script
+        id='gtag-init'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: `
            window.dataLayer = window.dataLayer || [];
            function gtag(){dataLayer.push(arguments);}
            gtag('js', new Date());
  
            gtag('config', '${gtag.GA_MEASUREMENT_ID}');
            `,
-				}}
-			/>
-
-			<Header />
-			<div className='py-5 bg-themepurple_bg'>
-				<Component {...pageProps} />
-			</div>
-			<Footer />
-		</>
-	);
+        }}
+      />
+      <NextProgress color="#AE9C9A" options={{ showSpinner: false }} />
+      <Header />
+      <main className="container max-w-4xl px-4 pt-24 pb-8 mx-auto">
+        <Component {...pageProps} />
+      </main>
+      <Footer />
+    </div>
+  );
 }
-
-export default MyApp;

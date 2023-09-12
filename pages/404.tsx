@@ -1,25 +1,19 @@
-import Link from 'next/link';
-import Userbox from '../components/Userbox';
-import Adsense from '../components/Adsense';
-import Seo from '../components/Seo';
+import SEO from "@/components/SEO";
+import UserCard from "@/components/UserCard";
 
 export default function Custom404() {
-	return (
-		<>
-			<Seo pageTitle={'404 Page Not Found'} />
-			<div className='flex flex-wrap max-w-screen-xl mx-auto'>
-				<main className='w-full p-2 lg:w-2/3'>
-					<h2 className='mb-3 text-2xl font-medium'>ページが見つかりませんでした</h2>
 
-					<Link href='/'>
-						<a className='block p-3 text-center transition-all bg-white rounded-xl shadow-card text-nicoblack hover:text-themepurple hover:bg-themepurple_bg'>ブログTOPにもどる</a>
-					</Link>
-				</main>
-				<aside className='flex flex-col items-center w-full p-2 lg:w-1/3'>
-					<Userbox />
-					<Adsense />
-				</aside>
-			</div>
-		</>
-	);
+  return (
+    <>
+      <SEO pageTitle={''} />
+      <div className="flex flex-col items-center mb-4 rounded-md shadow-md bg-theme_light-bg-current text-theme_light-text-current py-32">
+        <h2 className=" text-lg font-semibold tracking-widest mb-4">404 - Page Not Found</h2>
+        <div className=" text-center text-sm tracking-wider leading-6">
+          ページが見つかりませんでした。<br />
+          URL等をお確かめの上、再度お試しください。
+        </div>
+      </div>
+      <UserCard />
+    </>
+  ) 
 }

@@ -1,4 +1,4 @@
-export default function Date({ fieldtext }: any) {
+export default function TagReplace({ fieldtext }: any) {
 	fieldtext = fieldtext.replace(/(<([^>]+)>)/gi, '');
 
 	return fieldtext;

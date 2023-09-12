@@ -12,9 +12,9 @@ interface MetaData {
 }
 
 const defaultContents = {
-	siteName: 'ねころぐ',
-	defaultTitle: 'ねころぐ',
-	defaultDescription: 'ねこづきあゆむの個人ブログです。',
+	siteName: 'ねこづきあゆむのブログ',
+	defaultTitle: 'ねこづきあゆむのブログ',
+	defaultDescription: 'ねこづきあゆむのブログです。',
 	defaultPath: 'https://blog.nekozuki.me',
 };
 
@@ -22,9 +22,9 @@ const Seo: VFC<MetaData> = ({ pageTitle, pageDescription, pagePath, pageImg, pag
 	const title = pageTitle ? `${pageTitle} | ${defaultContents.siteName}` : defaultContents.defaultTitle;
 	const description = pageDescription ? `${pageDescription?.substring(0, 70)}…` : defaultContents.defaultDescription;
 	const url = pagePath ? `${defaultContents.defaultPath}${pagePath}` : defaultContents.defaultPath;
-	const imgUrl = pageImg ? pageImg : 'https://blog.nekozuki.me/ogp.png';
-	const imgWidth = pageImgWidth ? pageImgWidth : 1280;
-	const imgHeight = pageImgHeight ? pageImgHeight : 640;
+	const imgUrl = pageImg ? pageImg : 'https://blog.nekozuki.me/mashiro.png';
+	const imgWidth = pageImgWidth ? pageImgWidth : 1920;
+	const imgHeight = pageImgHeight ? pageImgHeight : 1080;
 	const type = pageType ? pageType : 'blog';
 
 	return (
@@ -39,8 +39,6 @@ const Seo: VFC<MetaData> = ({ pageTitle, pageDescription, pagePath, pageImg, pag
 			<meta property='og:type' content={type} />
 			<meta property='og:image' content={imgUrl} />
 			<meta name='twitter:card' content='summary_large_image' />
-			<meta name='twitter:site' content='@nekozuki_2525' />
-			<meta name='twitter:creator' content='@nekozuki_2525' />
 
 			<link rel='canonical' href={url} />
 		</Head>

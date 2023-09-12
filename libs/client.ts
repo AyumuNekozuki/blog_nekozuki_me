@@ -1,6 +1,8 @@
 import { createClient } from 'microcms-js-sdk';
 
-export const client = createClient({
+const client = createClient({
 	serviceDomain: 'nekolog',
 	apiKey: process.env.API_KEY || '',
 });
+
+export default client;
