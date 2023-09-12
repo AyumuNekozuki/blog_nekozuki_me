@@ -12,7 +12,7 @@ const ArticlesCard = ({article}: any) => {
         <div className="mb-1 font-normal tracking-wider text-ss md:text-xs">
           <DateTimeObj dateString={article.publishedAt} />
         </div>
-        <div className="text-xs font-semibold tracking-wider md:text-base line-clamp-2 ">{article.title}</div>
+        <div className=" text-sm font-semibold tracking-wider md:text-base line-clamp-2 ">{article.title}</div>
         <div className="mt-2 text-xs tracking-wider md:text-sm text-theme_light-text-sub line-clamp-2">
           <TagReplace fieldtext={article.body[0].editor} />
         </div>

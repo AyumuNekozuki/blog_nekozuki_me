@@ -14,7 +14,7 @@ const Home = ({ articles }: any) => {
       {articles.map((article: any, index: number) => {
         return <ArticlesCard key={index} article={article} />;
       })}
-      <Link href='/archive' className='flex flex-col justify-center py-4 transition-all rounded-md shadow-md md:flex-row bg-theme_light-bg-current text-theme_light-text-current hover:shadow-none'>
+      <Link href='/archive' className='flex flex-col justify-center py-4 transition-all rounded-md shadow-md md:flex-row bg-theme_light-bg-current text-theme_light-text-current hover:shadow-none items-center'>
         もっと読む
       </Link>
     </div>

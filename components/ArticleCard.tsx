@@ -39,7 +39,7 @@ const ArticleCard = ({ article }: any) => {
         </div>
       )}
       <div
-        className='w-full max-w-full px-4 pb-8 font-normal prose text-justify prose-theme_light prose-img:rounded-md prose-video:rounded-md prose-img:w-full hover:prose-a:no-underline'
+        className='w-full max-w-full px-4 pb-8 font-normal prose prose-sm md:prose-base text-justify prose-theme_light prose-img:rounded-md prose-video:rounded-md prose-img:w-full hover:prose-a:no-underline'
         dangerouslySetInnerHTML={{ __html: article.article_htmldata }}
       />
     </article>

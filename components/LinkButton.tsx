@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { BiCategory, BiPurchaseTagAlt } from "react-icons/bi";
+import { SiMisskey, SiGithub } from "react-icons/si";
+import { FaAddressBook } from "react-icons/fa";
 
 interface LinkButtonProps {
   href: string;
@@ -14,6 +16,9 @@ const LinkButton = (props: LinkButtonProps) => {
   let Icon = null;
   if(props.icon === "category") Icon = <BiCategory className="text-xs" />
   if(props.icon === "tag") Icon = <BiPurchaseTagAlt className="text-xs" />
+  if(props.icon === "misskey") Icon = <SiMisskey className="text-xs" />
+  if(props.icon === "github") Icon = <SiGithub className="text-xs" />
+  if(props.icon === "address") Icon = <FaAddressBook className="text-xs" />
 
   return (
     <Link

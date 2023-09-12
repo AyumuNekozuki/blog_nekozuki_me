@@ -24,30 +24,15 @@ const ArticlePage = ({ data }: any) => {
 };
 export default ArticlePage;
 
-export const getStaticPaths = async () => {
-  const data = await client.get({ 
-    endpoint: 'article',
-    queries: {
-      limit: 500,
-      orders: '-published_At',
-    },
-  });
 
-  const paths = data.contents.map((content: any) => `/${content.id}`);
-  return {
-    paths,
-    fallback: 'blocking',
-  };
-};
-
-
-export const getStaticProps = async (context: any) => {
-  const id = context.params.id;
+export const getServerSideProps = async (context: any) => {
+  const query = context.query;
 
   const articleData = await client
     .get({
       endpoint: 'article',
-      contentId: id,
+      contentId: query.id,
+      queries: { draftKey: query.draftKey }
     })
     .catch((error) => {});
 
@@ -77,6 +62,5 @@ export const getStaticProps = async (context: any) => {
     props: {
       data: returnData,
     },
-    revalidate: 10,
   };
 };

@@ -10,11 +10,18 @@ const UserCard = (props: UserCardProps) => {
   const Links = [
     {
       href: "https://mi.mashiro.site/@AyumuNekozuki",
-      title: "Misskey",
+      title: "@AyumuNekozuki@mi.mashiro.site",
+      icon: "misskey",
     },
     {
       href: "https://github.com/AyumuNekozuki",
-      title: "GitHub",
+      title: "AyumuNekozuki",
+      icon: "github",
+    },
+    {
+      href: "https://prof.nekozuki.me",
+      title: "Address book",
+      icon: "address",
     },
   ]
   
@@ -24,7 +31,7 @@ const UserCard = (props: UserCardProps) => {
       <Image src="/icon.png" alt="" width={500} height={500} className="absolute w-16 h-16 rounded-full shadow-md top-24 left-2 md:top-44 md:left-4 md:h-36 md:w-36" />
       <div className="px-4 py-2">
         <div className='pl-16 text-base font-normal md:text-2xl md:pl-40'>
-          {props.type === "autor" && <span className='block text-sm text-theme_light-text-sub'>記事を書いた人</span>}
+          {props.type === "autor" && <span className='block text-xs md:text-sm text-theme_light-text-sub'>記事を書いた人</span>}
           ねこづきあゆむ
         </div>
         <div className='mt-2 text-xs leading-5 md:leading-6 md:text-sm md:pl-40 text-theme_light-text-current'>
@@ -37,7 +44,7 @@ const UserCard = (props: UserCardProps) => {
             {
               Links.map((item, index) => {
                 return (
-                  <LinkButton key={index} href={item.href} title={item.title} target='_blank' rel='me' />
+                  <LinkButton key={index} href={item.href} title={item.title} target='_blank' rel='me' icon={item.icon} />
                 )
               })
             }
