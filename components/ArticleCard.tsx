@@ -16,11 +16,11 @@ const ArticleCard = ({ article }: any) => {
         <div className='flex gap-4 mt-2 text-xs tracking-wider md:text-sm text-theme_light-text-sub'>
           <div className='flex items-center gap-1 md:gap-2'>
             <FaCalendarDay className='text-xs' />
-            <DateTimeObj dateString={article.publishedAt} />
+            {article.publishedAt && <DateTimeObj dateString={article.publishedAt} />}
           </div>
           <div className='flex items-center gap-1 md:gap-2'>
             <FaPen className='text-xs' />
-            <DateTimeObj dateString={article.revisedAt} />
+            {article.revisedAt && <DateTimeObj dateString={article.revisedAt} />}
           </div>
         </div>
         <div className='flex gap-2 mt-2 text-xs tracking-wider md:text-sm text-theme_light-text-sub'>
