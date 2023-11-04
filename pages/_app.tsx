@@ -20,7 +20,7 @@ const zen_maru_gothic = Zen_Maru_Gothic({
 
 export default function App({ Component, pageProps }: AppProps) {
   const Router = useRouter();
-  const FooterRef = useRef<HTMLDivElement>();
+  const FooterRef = useRef<HTMLDivElement>(null);
   const [bodyMinHeight, setBodyMinHeight] = useState(0);
 
   // Google Analytics
