@@ -1,6 +1,6 @@
 import '@/styles/globals.scss';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
@@ -20,6 +20,8 @@ const zen_maru_gothic = Zen_Maru_Gothic({
 
 export default function App({ Component, pageProps }: AppProps) {
   const Router = useRouter();
+  const FooterRef = useRef<HTMLDivElement>();
+  const [bodyMinHeight, setBodyMinHeight] = useState(0);
 
   // Google Analytics
   useEffect(() => {
@@ -32,7 +34,10 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [Router.events]);
 
-  // Next Font
+  useEffect(() => {
+    if(!FooterRef.current) return;
+    setBodyMinHeight(window.innerHeight - FooterRef.current.clientHeight);
+  }, [FooterRef.current]) 
 
   return (
     <div className={`w-full min-h-screen ${zen_maru_gothic.className} font-zmg`}>
@@ -52,10 +57,10 @@ export default function App({ Component, pageProps }: AppProps) {
       />
       <NextProgress color="#AE9C9A" options={{ showSpinner: false }} />
       <Header />
-      <main className="container max-w-4xl px-4 pt-24 pb-8 mx-auto">
+      <main style={{ minHeight: `${bodyMinHeight}px`}} className="container max-w-4xl px-4 pt-24 pb-8 mx-auto">
         <Component {...pageProps} />
       </main>
-      <Footer />
+      <Footer ref={FooterRef} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
+import { forwardRef } from 'react';
 import Link from 'next/link';
 
-export default function Footer() {
+const Footer = forwardRef<HTMLDivElement>((props, ref) => {
 
   const link = [
     {
@@ -16,7 +17,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className='p-4 bg-theme_light-text-current text-theme_light-bg-current'>
+    <footer ref={ref} className='p-4 bg-theme_light-text-current text-theme_light-bg-current'>
       <div className='flex justify-between max-w-5xl px-4 py-4 mx-auto'>
         <Link href="/" className='transition-all hover:opacity-70'>ねこづきあゆむのブログ</Link>
         <div className='flex gap-4'>
@@ -32,4 +33,6 @@ export default function Footer() {
       <small className='block mx-auto my-4 tracking-wider text-center '>&copy; 2018-2023 AyumuNekozuki</small>
     </footer>
   )
-}
+});
+
+export default Footer;
