@@ -7,7 +7,15 @@ const ArticlesCard = ({article}: any) => {
 
   return (
     <Link href={`/${article.id}`} className="flex flex-col transition-all rounded-md shadow-md md:flex-row bg-theme_light-bg-current text-theme_light-text-current hover:shadow-none">
-      {article.thumbnail && <Image priority src={`${article.thumbnail.url}?fm=webp&w960&h540`} alt={article.title} width={960} height={540} className="object-cover w-full rounded-t-md md:rounded-r-none md:w-1/3 shrink-0 aspect-video md:rounded-l-md" />}
+      {article.thumbnail && (
+        <Image 
+          placeholder="blur"
+          blurDataURL={`${article.thumbnail.url}?fm=webp&w160&h90&blur=200`} 
+          src={`${article.thumbnail.url}?fm=webp&w256&h144`} 
+          alt={article.title} width={384} height={216} 
+          className="object-cover w-full rounded-t-md md:rounded-r-none md:w-1/3 shrink-0 aspect-video md:rounded-l-md" 
+        />
+      )}
       <div className="w-full p-4 overflow-hidden">
         <div className="mb-1 font-normal tracking-wider text-ss md:text-xs">
           <DateTimeObj dateString={article.publishedAt} />

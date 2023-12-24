@@ -6,6 +6,7 @@ import 'highlight.js/styles/github-dark.css';
 import UserCard from '@/components/UserCard';
 import ArticleCard from '@/components/ArticleCard';
 import SEO from '@/components/SEO';
+import Share from '@/components/Share';
 
 const ArticlePage = ({ data }: any) => {
 
@@ -18,6 +19,7 @@ const ArticlePage = ({ data }: any) => {
         pageImg={data.thumbnail ? data.thumbnail.url : 'https://blog.nekozuki.me/mashiro.png'}
       />
       <ArticleCard article={data} />
+      <Share articleId={data.id} articleTitle={data.title} />
       <UserCard type='autor' />
     </>
   );

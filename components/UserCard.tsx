@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import LinkButton from './LinkButton'
 
+import imgHeader from '@/public/mashiro.png';
+import imgIcon from '@/public/icon.png';
+
 type UserCardProps = {
   type?: "autor";
 }
@@ -27,8 +30,8 @@ const UserCard = (props: UserCardProps) => {
   
   return (
     <div className="relative rounded-md shadow-md bg-theme_light-bg-current text-theme_light-text-current">
-      <Image priority src="/mashiro.png" alt="" width={960} height={540} className="object-cover w-full h-32 md:h-64 rounded-t-md" />
-      <Image src="/icon.png" alt="" width={500} height={500} className="absolute w-16 h-16 rounded-full shadow-md top-24 left-2 md:top-44 md:left-4 md:h-36 md:w-36" />
+      <Image priority src={imgHeader} alt="" width={864} quality={100} className="object-cover w-full h-32 md:h-64 rounded-t-md" />
+      <Image src={imgIcon} alt="" width={144} height={144} quality={100} className="absolute w-16 h-16 rounded-full shadow-md top-24 left-2 md:top-44 md:left-4 md:h-36 md:w-36" />
       <div className="px-4 py-2">
         <div className='pl-16 text-base font-normal md:text-2xl md:pl-40'>
           {props.type === "autor" && <span className='block text-xs md:text-sm text-theme_light-text-sub'>記事を書いた人</span>}
