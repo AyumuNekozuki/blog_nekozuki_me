@@ -43,14 +43,19 @@ export const getServerSideProps = async (context: any) => {
 
   let article_htmldata: string = '';
   articleData.body.forEach((field: any) => {
-    const cheerio = load(field.editor);
-    cheerio('pre code').each((_, elm) => {
-      const result = hljs.highlightAuto(cheerio(elm).text());
-      cheerio(elm).html(result.value);
-      cheerio(elm).addClass('hljs');
-    });
+    if(field.fieldId !== 'codeblock-editor'){
+      const cheerio = load(field.editor);
+      cheerio('pre code').each((_, elm) => {
+        const result = hljs.highlightAuto(cheerio(elm).text());
+        cheerio(elm).html(result.value);
+        cheerio(elm).addClass('hljs');
+      });
 
-    article_htmldata += cheerio.html();
+      article_htmldata += cheerio.html();
+    }else{
+      const response = "<pre><code class='hljs'>" + field.codeblock + "</code></pre>";
+      article_htmldata += response;
+    }
   });
 
   let returnData = articleData;
