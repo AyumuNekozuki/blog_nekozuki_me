@@ -8,6 +8,9 @@ import { Zen_Maru_Gothic } from 'next/font/google';
 
 import * as gtag from '@/libs/gtag';
 import NextProgress from 'next-progress';
+import { AnimatePresence } from 'framer-motion';
+import { useTransitionFix } from '@/hooks/useTransitionFix';
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -18,7 +21,8 @@ const zen_maru_gothic = Zen_Maru_Gothic({
   subsets: ['latin'],
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
+  const transitionCallback = useTransitionFix();
   const Router = useRouter();
   const FooterRef = useRef<HTMLDivElement>(null);
   const [bodyMinHeight, setBodyMinHeight] = useState(0);
@@ -58,7 +62,12 @@ export default function App({ Component, pageProps }: AppProps) {
       <NextProgress color="#AE9C9A" options={{ showSpinner: false }} />
       <Header />
       <main style={{ minHeight: `${bodyMinHeight}px`}} className="container max-w-4xl px-4 pt-24 pb-8 mx-auto">
-        <Component {...pageProps} />
+        <AnimatePresence mode="wait" onExitComplete={() => {
+          transitionCallback();
+          window.scrollTo(0, 0);
+        }}>
+          <Component key={router.asPath}  {...pageProps} />
+        </AnimatePresence>
       </main>
       <Footer ref={FooterRef} />
     </div>

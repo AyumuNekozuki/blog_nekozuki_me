@@ -1,7 +1,7 @@
 import styles from './Header.module.scss';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import PageLink from './PageLink';
 import { HiOutlineMenuAlt3, HiOutlineChevronUp } from 'react-icons/hi';
 
 const Header = () => {
@@ -30,9 +30,9 @@ const Header = () => {
     <header className={`${styles.header} flex flex-col text-theme_light-text-current justify-between mx-auto py-4 px-8 md:flex-row md:items-center fixed top-4 left-4 font-medium`} style={{textShadow: "0px 0px 3px #F6F5F1"}}>
       <div className='flex flex-row justify-between'>
         <h1 className='flex'>
-          <Link href='/' className='flex items-center transition-all hover:opacity-70'>
+          <PageLink href='/' className='flex items-center transition-all hover:opacity-70'>
             ねこづきあゆむのブログ
-          </Link>
+          </PageLink>
         </h1>
         <button className='relative flex items-center justify-center text-2xl w-[25px] aspect-square md:hidden' onClick={toggleSPMenu} style={{filter: 'drop-shadow(0 0 1px #F6F5F1)'}}>
           <HiOutlineMenuAlt3 className={` absolute transition-all ${isSPMenuOpen == true && 'opacity-0'}`} />
@@ -44,11 +44,11 @@ const Header = () => {
           {MenuList.map((item, index) => {
             return (
               <li key={index} className={`flex justify-center md:items-center flex-col list-none `}>
-                <Link
+                <PageLink
                   className={`flex items-center tracking-wider transition-all hover:opacity-70  ${isSPMenuOpen && 'w-full px-2 py-2 rounded-md hover:opacity-70'} md:p-0`}
                   href={item.href}>
                   {item.text}
-                </Link>
+                </PageLink>
               </li>
             );
           })}

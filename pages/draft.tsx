@@ -2,6 +2,7 @@ import { load } from 'cheerio';
 import hljs from 'highlight.js';
 import client from '@/libs/client';
 
+import Layout from '@/components/Layout';
 import 'highlight.js/styles/github-dark.css';
 import UserCard from '@/components/UserCard';
 import ArticleCard from '@/components/ArticleCard';
@@ -10,7 +11,7 @@ import SEO from '@/components/SEO';
 const ArticlePage = ({ data }: any) => {
 
   return (
-    <>
+    <Layout>
       <SEO
         pageTitle={data.title}
         pageDescription={data.article_htmldata.replace(/(<([^>]+)>)/gi, '')}
@@ -19,7 +20,7 @@ const ArticlePage = ({ data }: any) => {
       />
       <ArticleCard article={data} />
       <UserCard type='autor' />
-    </>
+    </Layout>
   );
 };
 export default ArticlePage;

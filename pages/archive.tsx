@@ -1,16 +1,19 @@
 import ArticlesCard from '@/components/ArticlesCard';
+import Layout from '@/components/Layout';
 import SEO from '@/components/SEO';
 import client from '@/libs/client';
 
 const Archive = ({ articles }: any) => {
   return (
-    <div className='flex flex-col gap-5'>
-      <SEO pageTitle={'過去記事一覧'} pagePath={'/archive'} />
-      <h2 className='px-2 pt-4 text-lg font-bold text-theme_light-text-current'>過去記事一覧</h2>
-      {articles.map((article: any, index: number) => {
-        return <ArticlesCard key={index} article={article} />;
-      })}
-    </div>
+    <Layout>
+      <div className='flex flex-col gap-5'>
+        <SEO pageTitle={'過去記事一覧'} pagePath={'/archive'} />
+        <h2 className='px-2 pt-4 text-lg font-bold text-theme_light-text-current'>過去記事一覧</h2>
+        {articles.map((article: any, index: number) => {
+          return <ArticlesCard key={index} article={article} />;
+        })}
+      </div>
+    </Layout>
   );
 };
 

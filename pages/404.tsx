@@ -1,4 +1,6 @@
 import Image from 'next/image';
+
+import Layout from '@/components/Layout';
 import SEO from "@/components/SEO";
 import UserCard from "@/components/UserCard";
 
@@ -7,7 +9,7 @@ import img404 from '@/public/404.png';
 export default function Custom404() {
 
   return (
-    <>
+    <Layout>
       <SEO pageTitle={'404 - Page Not Found'} />
       <div className="flex flex-col items-center mb-4 rounded-md shadow-md bg-theme_light-bg-current text-theme_light-text-current py-32">
         <h2 className=" text-lg font-semibold tracking-widest mb-4">404 - Page Not Found</h2>
@@ -18,6 +20,6 @@ export default function Custom404() {
         </div>
       </div>
       <UserCard />
-    </>
+    </Layout>
   ) 
 }

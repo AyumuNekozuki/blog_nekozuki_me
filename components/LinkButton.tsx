@@ -1,4 +1,4 @@
-import Link from "next/link";
+import PageLink from "./PageLink";
 import { BiCategory, BiPurchaseTagAlt } from "react-icons/bi";
 import { SiMisskey, SiGithub } from "react-icons/si";
 import { FaAddressBook } from "react-icons/fa";
@@ -21,7 +21,7 @@ const LinkButton = (props: LinkButtonProps) => {
   if(props.icon === "address") Icon = <FaAddressBook className="text-xs" />
 
   return (
-    <Link
+    <PageLink
       href={props.href}
       className={`flex gap-1 items-center px-2 py-1 text-xs transition-all border rounded-2xl border-theme_light-current md:text-xs text-theme_light-text-current hover:shadow ${props.className}`}
       target={props.target}
@@ -29,7 +29,7 @@ const LinkButton = (props: LinkButtonProps) => {
       >
       {Icon && Icon}
       {props.title}
-    </Link>
+    </PageLink>
   );
 };
 

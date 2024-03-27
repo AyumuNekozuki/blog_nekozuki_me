@@ -1,12 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
+import PageLink from "./PageLink";
 import DateTimeObj from "@/components/DateTimeObj";
 import TagReplace from "@/components/TagReplace";
 
 const ArticlesCard = ({article}: any) => {
 
   return (
-    <Link href={`/${article.id}`} className="flex flex-col transition-all rounded-md shadow-md md:flex-row bg-theme_light-bg-current text-theme_light-text-current hover:shadow-none">
+    <PageLink href={`/${article.id}`} className="flex flex-col transition-all rounded-md shadow-md md:flex-row bg-theme_light-bg-current text-theme_light-text-current hover:shadow-none">
       {article.thumbnail && (
         <Image 
           placeholder="blur"
@@ -25,7 +25,7 @@ const ArticlesCard = ({article}: any) => {
           <TagReplace fieldtext={article.body[0].editor} />
         </div>
       </div>
-    </Link>
+    </PageLink>
   )
 }
 

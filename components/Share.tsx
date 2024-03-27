@@ -33,6 +33,7 @@ const Share = ({ articleId, articleTitle }: ShareProps) => {
         {ShareList.map((item, index) => {
           return (
             <a 
+            key={index}
             target='_blank'
             rel='noopener noreferrer'
             className=' flex gap-1 items-center px-3 py-3 text-md transition-all border rounded-2xl border-theme_light-current md:text-md text-theme_light-text-current hover:shadow'
