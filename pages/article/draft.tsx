@@ -29,13 +29,16 @@ export default ArticlePage;
 export const getServerSideProps = async (context: any) => {
   const query = context.query;
 
+  if (!query.id || !query.draftKey) {
+    return { notFound: true };
+  }
+
   const articleData = await client
     .get({
       endpoint: 'article',
       contentId: query.id,
       queries: { draftKey: query.draftKey }
-    })
-    .catch((error) => {});
+    }).catch((error: any) => {});
 
   if (!articleData) {
     return { notFound: true };

@@ -9,7 +9,7 @@ const Header = () => {
 
   const MenuList = [
     {
-      href: '/articles',
+      href: '/articles/1',
       text: 'articles',
     },
     {

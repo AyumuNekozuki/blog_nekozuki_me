@@ -36,7 +36,7 @@ export const getStaticPaths = async () => {
       limit: 500,
       orders: '-published_At',
     },
-  });
+  }).catch((error: any) => {});
 
   const paths = data.contents.map((content: any) => `/article/${content.id}`);
   return {
@@ -53,7 +53,7 @@ export const getStaticProps = async (context: any) => {
     .get({
       endpoint: 'article',
       contentId: id,
-    })
+    }).catch((error: any) => {});
 
   if (!articleData) {
     return { notFound: true };

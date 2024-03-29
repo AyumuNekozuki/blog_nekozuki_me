@@ -15,7 +15,7 @@ const nextConfig = {
     return [
       {
         source: '/archive',
-        destination: '/articles',
+        destination: '/articles/1',
         statusCode: 301,
       },
       {

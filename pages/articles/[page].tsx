@@ -38,7 +38,10 @@ const Archive = ({ articles, page }: { articles: any, page: number}) => {
 export default Archive;
 
 export const getStaticPaths = async () => {
-  const repos = await client.get({ endpoint: "article" });
+  const repos = await client.get({ 
+    endpoint: "article"
+  }).catch((error: any) => {});
+
   const range = (start: number, end: number) => [...Array(end - start + 1)].map((_, i) => start + i);
   const paths = range(1, Math.ceil(repos.totalCount / PER_PAGE)).map((repo) => `/articles/${repo}`);
 
@@ -50,7 +53,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: any) => {
   const page = context.params.page ? Number(context.params.page) : 1;
-
   if(!context.params.page || page < 1 || Number.isNaN(page)) {
     return {
       redirect: {
@@ -67,7 +69,7 @@ export const getStaticProps = async (context: any) => {
       orders: '-published_At',
       offset: (page - 1) * PER_PAGE,
     },
-  });
+  }).catch((error: any) => {});
 
   if(articleData.contents.length === 0) {
     return {
