@@ -6,7 +6,7 @@ import TagReplace from "@/components/TagReplace";
 const ArticlesCard = ({article}: any) => {
 
   return (
-    <PageLink href={`/${article.id}`} className="flex flex-col transition-all rounded-md shadow-md md:flex-row bg-theme_light-bg-current text-theme_light-text-current hover:shadow-none">
+    <PageLink href={`/article/${article.id}`} className="flex flex-col transition-all rounded-md shadow-md md:flex-row bg-theme_light-bg-current text-theme_light-text-current hover:shadow-none">
       {article.thumbnail && (
         <Image 
           placeholder="blur"

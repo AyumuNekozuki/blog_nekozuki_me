@@ -10,6 +10,20 @@ const nextConfig = {
         pathname: '/**',
       }
     ]
+  },
+  async redirects(){
+    return [
+      {
+        source: '/archive',
+        destination: '/articles',
+        statusCode: 301,
+      },
+      {
+        source: '/draft',
+        destination: '/article/draft',
+        statusCode: 301,
+      },
+    ]
   }
 }
 
