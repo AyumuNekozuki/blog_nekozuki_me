@@ -14,7 +14,7 @@ interface MetaData {
 const defaultContents = {
 	siteName: 'ねこづきあゆむのブログ',
 	defaultTitle: 'ねこづきあゆむのブログ',
-	defaultDescription: 'ねこづきあゆむのブログです。',
+	defaultDescription: 'このブログでは、適当に日々の思いつきを書き連ねています。',
 	defaultPath: 'https://blog.nekozuki.me',
 };
 
