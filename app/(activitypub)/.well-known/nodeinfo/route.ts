@@ -8,11 +8,11 @@ export const GET = async () => {
       links: [
         {
           rel: 'http://nodeinfo.diaspora.software/ns/schema/2.1',
-          href: 'https://blog.nekozuki.me/nodeinfo/2.1',
+          href: `https://${process.env.ACTIVITYPUB_HOST}/nodeinfo/2.1`,
         },
         {
           rel: 'http://nodeinfo.diaspora.software/ns/schema/2.0',
-          href: 'https://blog.nekozuki.me/nodeinfo/2.0',
+          href: `https://${process.env.ACTIVITYPUB_HOST}/nodeinfo/2.0`,
         }
       ],
     },
