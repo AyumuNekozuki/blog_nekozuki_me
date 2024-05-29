@@ -31,7 +31,7 @@ export const GET = async () => {
         // maxNoteTextLength: 3000,
         // enableEmail: true,
         // enableServiceWorker: true,
-        proxyAccountName: 'proxy2',
+        // proxyAccountName: 'proxy2',
         themeColor: '#ae9c9b',
       },
     },

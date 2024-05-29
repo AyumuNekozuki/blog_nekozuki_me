@@ -6,6 +6,9 @@ import { useRouter } from 'next/router';
 import Script from 'next/script';
 import { Zen_Maru_Gothic } from 'next/font/google';
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
+
 import * as gtag from '@/libs/gtag';
 import NextProgress from 'next-progress';
 import { AnimatePresence } from 'framer-motion';
@@ -70,6 +73,8 @@ export default function App({ Component, pageProps, router }: AppProps) {
         </AnimatePresence>
       </main>
       <Footer ref={FooterRef} />
+      <Analytics />
+      <SpeedInsights/>
     </div>
   );
 }
