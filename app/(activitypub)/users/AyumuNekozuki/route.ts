@@ -1,36 +1,12 @@
 import { NextResponse } from 'next/server';
+import { context } from "@/libs/activitypub/context";
 
 export const dynamic = 'force-dynamic';
 
 export const GET = async () => {
   const responseData = NextResponse.json(
     {
-      '@context': [
-        'https://www.w3.org/ns/activitystreams', 
-        'https://w3id.org/security/v1',
-        {
-          "Key": "sec:Key",
-          "manuallyApprovesFollowers": "as:manuallyApprovesFollowers",
-          "sensitive": "as:sensitive",
-          "Hashtag": "as:Hashtag",
-          "quoteUrl": "as:quoteUrl",
-          "toot": "http://joinmastodon.org/ns#",
-          "Emoji": "toot:Emoji",
-          "featured": "toot:featured",
-          "discoverable": "toot:discoverable",
-          "schema": "http://schema.org#",
-          "PropertyValue": "schema:PropertyValue",
-          "value": "schema:value",
-          "misskey": "https://misskey-hub.net/ns#",
-          "_misskey_content": "misskey:_misskey_content",
-          "_misskey_quote": "misskey:_misskey_quote",
-          "_misskey_reaction": "misskey:_misskey_reaction",
-          "_misskey_votes": "misskey:_misskey_votes",
-          "_misskey_summary": "misskey:_misskey_summary",
-          "isCat": "misskey:isCat",
-          "vcard": "http://www.w3.org/2006/vcard/ns#"
-        }
-      ],
+      '@context': context,
       type: 'Person',
       id: `https://${process.env.ACTIVITYPUB_HOST}/users/AyumuNekozuki`,
       inbox: `https://${process.env.ACTIVITYPUB_HOST}/users/AyumuNekozuki/inbox`,

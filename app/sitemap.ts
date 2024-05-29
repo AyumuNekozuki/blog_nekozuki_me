@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         sitemapData.push({
           url: url,
           lastModified: new Date(article.publishedAt),
-          priority: 0.8,
+          priority: 1,
         })
       });
     }
