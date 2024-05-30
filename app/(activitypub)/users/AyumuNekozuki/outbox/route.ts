@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { context } from '@/libs/activitypub/context';
 import client from '@/libs/client';
+import { activityContent } from '@/libs/activitypub/activityContent';
 
 export const dynamic = 'force-dynamic';
 
@@ -46,7 +47,7 @@ const withQuery = async (pageQuery: string) => {
     }).catch((error) => {});
     
     articles?.contents.map((article: any) => {
-      const content = `<p>ブログを更新しました: ${article.title}<br><a href="https://blog.nekozuki.me/${article.id}">https://blog.nekozuki.me/${article.id}</p>`;
+      const content = activityContent(article.title, article.id);
   
       responseArticles.push({
         id: `https://${process.env.ACTIVITYPUB_HOST}/notes/${article.id}/activity`,
@@ -54,7 +55,7 @@ const withQuery = async (pageQuery: string) => {
         type: 'Create',
         published: article.published_At,
         object: {
-          id: `https://${process.env.ACTIVITYPUB_HOST}/${article.id}`,
+          id: `https://${process.env.ACTIVITYPUB_HOST}/notes/${article.id}`,
           type: 'Note',
           attributedTo: `https://${process.env.ACTIVITYPUB_HOST}/users/AyumuNekozuki`,
           content: content,
