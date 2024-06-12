@@ -1,7 +1,7 @@
 import ArticlesCard from '@/components/ArticlesCard';
 import Layout from '@/components/Layout';
 import SEO from '@/components/SEO';
-import client from '@/libs/client';
+import client from '@/libs/microcms/client';
 
 export default function CategoryArticles({ articles, category }: any) {
   return (

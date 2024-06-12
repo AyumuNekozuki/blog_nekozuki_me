@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { context } from '@/libs/activitypub/context';
-import client from '@/libs/client';
+import client from '@/libs/microcms/client';
 import { activityContent } from '@/libs/activitypub/activityContent';
 
 export const dynamic = 'force-dynamic';

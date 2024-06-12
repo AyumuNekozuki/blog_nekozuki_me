@@ -8,7 +8,7 @@ const config: Config = {
         'ss': '0.5rem',
       },
       fontFamily: {
-        zmg: ['Zen Maru Gothic', 'Hiragino Maru Gothic Pro', 'BIZ UDGothic', 'HelveticaNeue', 'Arial', 'sans-serif'],
+        // zmg: ['Zen Maru Gothic', 'Hiragino Maru Gothic Pro', 'BIZ UDGothic', 'HelveticaNeue', 'Arial', 'sans-serif'],
       },
       colors: {
         transparent: 'transparent',

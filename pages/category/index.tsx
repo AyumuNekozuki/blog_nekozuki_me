@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
 import LinkButton from '@/components/LinkButton';
 import SEO from '@/components/SEO';
-import client from '@/libs/client';
+import client from '@/libs/microcms/client';
 
 export default function CategoryPage({ categories }: any) {
 

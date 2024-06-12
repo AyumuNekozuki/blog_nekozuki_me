@@ -1,5 +1,5 @@
 import { Feed } from 'feed';
-import client from '@/libs/client';
+import client from '@/libs/microcms/client';
 
 export const generatedRssFeed = async (type: "rss2" | "atom1" | "json1") => {
   const baseUrl = 'https://blog.nekozuki.me';

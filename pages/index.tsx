@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import client from '@/libs/client';
+import client from '@/libs/microcms/client';
 
 import Layout from '@/components/Layout';
 import UserCard from '@/components/UserCard';

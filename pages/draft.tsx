@@ -1,6 +1,6 @@
 import { load } from 'cheerio';
 import hljs from 'highlight.js';
-import client from '@/libs/client';
+import client from '@/libs/microcms/client';
 
 import Layout from '@/components/Layout';
 import 'highlight.js/styles/github-dark.css';

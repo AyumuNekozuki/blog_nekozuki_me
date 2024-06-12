@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { context } from '@/libs/activitypub/context';
 import { activityContent } from '@/libs/activitypub/activityContent';
-import client from '@/libs/client';
+import client from '@/libs/microcms/client';
 
 export const dynamic = 'force-dynamic';
 
